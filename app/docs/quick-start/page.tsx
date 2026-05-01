@@ -32,13 +32,13 @@ export default function QuickStart() {
       <h2>Step 2 â€” Install the agent</h2>
       <h3>Linux / macOS</h3>
       <CodeBlock
-        code={`curl -fsSL https://install.CupraFlow.dev | sudo bash`}
+        code={`curl -fsSL https://install.cupraflow.dev | sudo bash`}
         language="bash"
         filename="Terminal"
       />
       <h3>Windows (PowerShell â€” run as Administrator)</h3>
       <CodeBlock
-        code={`irm https://install.CupraFlow.dev/windows | iex`}
+        code={`irm https://install.cupraflow.dev/windows | iex`}
         language="powershell"
         filename="PowerShell"
       />

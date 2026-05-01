@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 const envVars = [
   { name: "CupraFlow_TOKEN",         required: true,  default: "â€”",                                  desc: "Agent authentication token" },
-  { name: "CupraFlow_ENDPOINT",      required: false, default: "https://ingest.CupraFlow.dev",        desc: "OTLP gRPC endpoint" },
+  { name: "CupraFlow_ENDPOINT",      required: false, default: "https://ingest.cupraflow.dev",        desc: "OTLP gRPC endpoint" },
   { name: "CupraFlow_INTERVAL_SECS", required: false, default: "10",                                 desc: "Metric collection interval in seconds" },
   { name: "CupraFlow_LOG_LEVEL",     required: false, default: "info",                               desc: "Log verbosity: trace, debug, info, warn, error" },
   { name: "CupraFlow_BUFFER_PATH",   required: false, default: "/var/lib/CupraFlow/buffer",           desc: "Local offline buffer directory" },
@@ -71,7 +71,7 @@ export default function ConfigurationPage() {
       <CodeBlock
         code={`# config.toml
 token          = "op_live_xxxxxxxxxxxx"
-endpoint       = "https://ingest.CupraFlow.dev"
+endpoint       = "https://ingest.cupraflow.dev"
 interval_secs  = 10
 log_level      = "info"
 buffer_path    = "/var/lib/CupraFlow/buffer"

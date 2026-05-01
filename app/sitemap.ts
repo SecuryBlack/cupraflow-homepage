@@ -1,7 +1,7 @@
 ﻿import type { MetadataRoute } from "next";
 import { getAllPosts } from "@/lib/blog";
 
-const BASE_URL = "https://CupraFlow.dev";
+const BASE_URL = "https://cupraflow.dev";
 
 const STATIC_ROUTES: Array<{
   path: string;

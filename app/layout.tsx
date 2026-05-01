@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "CupraFlow — Load balancer agent for Windows",
+    default: "CupraFlow â€” Load balancer agent for Windows",
     template: "%s | CupraFlow",
   },
   description:
@@ -29,14 +29,14 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://cupraflow.dev",
     siteName: "CupraFlow",
-    title: "CupraFlow — Load balancer agent for Windows",
+    title: "CupraFlow â€” Load balancer agent for Windows",
     description:
       "Open-source network management and load balancing agent written in Rust. Native Windows Service with one-line install.",
     images: [{ url: "/og.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "CupraFlow — Load balancer agent for Windows",
+    title: "CupraFlow â€” Load balancer agent for Windows",
     description:
       "Open-source network management and load balancing agent written in Rust. Native Windows Service with one-line install.",
     images: ["/og.png"],

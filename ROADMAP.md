@@ -1,7 +1,7 @@
 ﻿# CupraFlow Homepage â€” Hoja de Ruta
 
 > **Stack:** Next.js 15 Â· Tailwind CSS v4 Â· MDX Â· Framer Motion Â· Shiki
-> **Dominio:** CupraFlow.dev
+> **Dominio:** cupraflow.dev
 > **Paleta:** `#B87333` (primary) Â· `#0E0E0E` (bg) Â· `#F0F0F0` (text)
 
 ---
@@ -84,7 +84,7 @@
 - [x] **7.5** favicon SVG con el logo de pulso
 - [x] **7.6** 404 page personalizada
 - [ ] **7.7** Deploy en Vercel â†’ ver instrucciones abajo
-- [ ] **7.8** Dominio CupraFlow.dev apuntando al deploy
+- [ ] **7.8** Dominio cupraflow.dev apuntando al deploy
 
 ## Deploy en Vercel (manual)
 
@@ -107,8 +107,8 @@ vercel
 vercel --prod
 ```
 
-### Dominio personalizado (CupraFlow.dev)
-En el dashboard de Vercel â†’ Settings â†’ Domains â†’ aÃ±adir `CupraFlow.dev`
+### Dominio personalizado (cupraflow.dev)
+En el dashboard de Vercel â†’ Settings â†’ Domains â†’ aÃ±adir `cupraflow.dev`
 Vercel genera los DNS records a apuntar en tu registrar.
 
 ---

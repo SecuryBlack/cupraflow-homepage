@@ -84,10 +84,10 @@ auto_update = false`}
       </p>
       <CodeBlock
         code={`# Linux
-CupraFlow_VERSION=v0.1.0 curl -fsSL https://install.CupraFlow.dev | sudo bash
+CupraFlow_VERSION=v0.1.0 curl -fsSL https://install.cupraflow.dev | sudo bash
 
 # Windows
-$env:CupraFlow_VERSION="v0.1.0"; irm https://install.CupraFlow.dev/windows | iex`}
+$env:CupraFlow_VERSION="v0.1.0"; irm https://install.cupraflow.dev/windows | iex`}
         language="bash"
       />
 

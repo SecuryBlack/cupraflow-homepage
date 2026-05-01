@@ -258,7 +258,7 @@ CupraFlow compiles to a native ARM64 binary and uses under 8 MB of RAM in steady
 ## 1. Install the agent
 
 \`\`\`bash
-curl -fsSL https://install.CupraFlow.dev | sudo bash
+curl -fsSL https://install.cupraflow.dev | sudo bash
 \`\`\`
 
 The installer detects the ARM64 architecture automatically and downloads the correct binary.
@@ -340,7 +340,7 @@ ssh root@YOUR_SERVER_IP
 ## 2. Install CupraFlow
 
 \`\`\`bash
-curl -fsSL https://install.CupraFlow.dev | sudo bash
+curl -fsSL https://install.cupraflow.dev | sudo bash
 \`\`\`
 
 The installer detects x86_64 or ARM64 automatically, downloads the correct binary, installs it
@@ -545,7 +545,7 @@ that starts automatically on boot, and writes structured logs to the Windows Eve
 Open PowerShell **as Administrator** and run:
 
 \`\`\`powershell
-irm https://install.CupraFlow.dev | iex
+irm https://install.cupraflow.dev | iex
 \`\`\`
 
 The installer:
@@ -941,7 +941,7 @@ linked â€” no runtime dependencies, no package manager required after insta
 ## 1. Run the installer
 
 \`\`\`bash
-curl -fsSL https://install.CupraFlow.dev | sudo bash
+curl -fsSL https://install.cupraflow.dev | sudo bash
 \`\`\`
 
 The installer:
@@ -953,7 +953,7 @@ The installer:
 
 <Callout type="info">
   To review the installer before running it, fetch it first:
-  \`curl -fsSL https://install.CupraFlow.dev -o install.sh && less install.sh\`
+  \`curl -fsSL https://install.cupraflow.dev -o install.sh && less install.sh\`
 </Callout>
 
 ## 2. Create an agent in SecuryBlack

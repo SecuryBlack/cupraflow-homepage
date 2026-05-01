@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Terminal, MonitorDown, ArrowRight } from "lucide-react";
 import { Layout } from "@/components/layout";
 import { Badge } from "@/components/ui/Badge";
@@ -17,8 +17,8 @@ export const metadata: Metadata = {
 const platforms = [
   { os: "Windows", arch: "x86_64", status: "stable", binary: "cupraflow-x86_64-pc-windows-msvc.zip" },
   { os: "Windows", arch: "ARM64", status: "beta", binary: "cupraflow-aarch64-pc-windows-msvc.zip" },
-  { os: "Linux", arch: "x86_64 (amd64)", status: "planned", binary: "—" },
-  { os: "Linux", arch: "ARM64 (aarch64)", status: "planned", binary: "—" },
+  { os: "Linux", arch: "x86_64 (amd64)", status: "planned", binary: "â€”" },
+  { os: "Linux", arch: "ARM64 (aarch64)", status: "planned", binary: "â€”" },
 ];
 
 const statusBadge = (s: string) => {
@@ -42,7 +42,7 @@ const windowsSteps = [
           filename="PowerShell (Admin)"
         />
         <Callout variant="warning">
-          Must be run as Administrator to register the Windows Service. Right-click PowerShell →
+          Must be run as Administrator to register the Windows Service. Right-click PowerShell â†’
           "Run as administrator".
         </Callout>
       </>

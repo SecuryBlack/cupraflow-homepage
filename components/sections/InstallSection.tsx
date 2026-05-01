@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -146,7 +146,7 @@ export function InstallSection() {
         <p className="text-center text-sm text-[var(--color-muted)] mt-8">
           Need advanced configuration?{" "}
           <a href="/install" className="text-[var(--color-primary)] hover:underline">
-            Full install guide →
+            Full install guide â†’
           </a>
         </p>
       </div>
