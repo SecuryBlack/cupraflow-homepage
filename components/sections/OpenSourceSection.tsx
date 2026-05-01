@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { motion } from "framer-motion";
 import { Github, GitFork, Star, FileText } from "lucide-react";
@@ -47,13 +47,13 @@ export function OpenSourceSection() {
               owned by the community.
             </h2>
             <p className="text-[var(--color-muted)] leading-relaxed mb-8">
-              CupraFlow is an independent open-source project maintained by SecuryBlack. The agent
+              cupraflow is an independent open-source project maintained by SecuryBlack. The agent
               source is fully public, auditable, and free to extend. We believe monitoring
               infrastructure should be transparent.
             </p>
             <div className="flex flex-wrap gap-3">
               <Button
-                href="https://github.com/sb-mcampoe/cupraflow"
+                href="https://github.com/sb-mcampoe/cupra-flow"
                 variant="primary"
                 size="md"
                 external
@@ -62,7 +62,7 @@ export function OpenSourceSection() {
                 View source on GitHub
               </Button>
               <Button
-                href="https://github.com/sb-mcampoe/cupraflow/blob/main/LICENSE"
+                href="https://github.com/sb-mcampoe/cupra-flow/blob/main/LICENSE"
                 variant="outline"
                 size="md"
                 external

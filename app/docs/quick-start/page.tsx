@@ -1,11 +1,11 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { Prose } from "@/components/ui/Prose";
 import { CodeBlock } from "@/components/ui/CodeBlock";
 import { Callout } from "@/components/ui/Callout";
 
 export const metadata: Metadata = {
   title: "Quick Start",
-  description: "Install CupraFlow and start collecting server metrics in under 5 minutes.",
+  description: "Install cupraflow and start collecting server metrics in under 5 minutes.",
 };
 
 export default function QuickStart() {
@@ -13,20 +13,20 @@ export default function QuickStart() {
     <Prose>
       <h1>Quick Start</h1>
       <p>
-        This guide gets CupraFlow installed and sending metrics in under 5 minutes.
+        This guide gets cupraflow installed and sending metrics in under 5 minutes.
         You&apos;ll need a server running Linux (x86_64 or ARM64) or Windows, and an OTLP-compatible
         endpoint to receive metrics.
       </p>
 
       <h2>Step 1 ” Get your token</h2>
       <p>
-        Log in to the CupraFlow dashboard and generate an agent token from the{" "}
+        Log in to the cupraflow dashboard and generate an agent token from the{" "}
         <strong>Settings â†’ Tokens</strong> page. It will look like{" "}
         <code>op_live_xxxxxxxxxxxx</code>.
       </p>
       <Callout variant="info">
         If you&apos;re self-hosting your own OTLP collector, you can skip the token step and set{" "}
-        <code>CupraFlow_ENDPOINT</code> directly to your collector&apos;s gRPC address.
+        <code>cupraflow_ENDPOINT</code> directly to your collector&apos;s gRPC address.
       </Callout>
 
       <h2>Step 2 ” Install the agent</h2>
@@ -50,11 +50,11 @@ export default function QuickStart() {
       <h2>Step 3 ” Verify the agent is running</h2>
       <h3>Linux</h3>
       <CodeBlock
-        code={`systemctl status CupraFlow`}
+        code={`systemctl status cupraflow`}
         language="bash"
       />
       <CodeBlock
-        code={`â— CupraFlow.service - CupraFlow Telemetry Agent
+        code={`â— cupraflow.service - cupraflow Telemetry Agent
      Active: active (running)`}
         language="bash"
         filename="Expected output"
@@ -62,7 +62,7 @@ export default function QuickStart() {
       />
       <h3>Windows</h3>
       <CodeBlock
-        code={`Get-Service -Name CupraFlow`}
+        code={`Get-Service -Name cupraflow`}
         language="powershell"
       />
 
@@ -73,23 +73,23 @@ export default function QuickStart() {
       </p>
       <CodeBlock
         code={`# Linux
-journalctl -u CupraFlow -f
+journalctl -u cupraflow -f
 
 # Windows
-Get-EventLog -LogName Application -Source CupraFlow -Newest 10`}
+Get-EventLog -LogName Application -Source cupraflow -Newest 10`}
         language="bash"
         filename="Logs"
       />
       <CodeBlock
-        code={`INFO CupraFlow: agent started, sending metrics every 10s
-INFO CupraFlow: metrics sent successfully (cpu=12.4%, ram=3.1GB/8GB)`}
+        code={`INFO cupraflow: agent started, sending metrics every 10s
+INFO cupraflow: metrics sent successfully (cpu=12.4%, ram=3.1GB/8GB)`}
         language="bash"
         filename="Expected log output"
         showCopy={false}
       />
 
       <Callout variant="success">
-        That&apos;s it. CupraFlow is now running and streaming your server&apos;s vital signs.
+        That&apos;s it. cupraflow is now running and streaming your server&apos;s vital signs.
         The agent will also check for updates daily and self-update automatically.
       </Callout>
 

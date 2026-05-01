@@ -16,7 +16,7 @@ export function HowItWorks() {
             How it works
           </h2>
           <p className="mt-4 text-[var(--color-muted)] max-w-xl mx-auto">
-            CupraFlow sits between your clients and your backend pool. It routes traffic,
+            cupraflow sits between your clients and your backend pool. It routes traffic,
             monitors health, and fails over automatically.
           </p>
         </div>
@@ -39,10 +39,10 @@ export function HowItWorks() {
 
           <Connector />
 
-          {/* CupraFlow LB — highlighted */}
+          {/* cupraflow LB — highlighted */}
           <FlowNode
             icon={Shield}
-            label="CupraFlow LB"
+            label="cupraflow LB"
             description="Routes & balances"
             iconColor="var(--color-primary)"
             highlight

@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { Github, Bug, GitPullRequest, Star, FileText } from "lucide-react";
 import { Layout } from "@/components/layout";
 import { Card } from "@/components/ui/Card";
@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
   title: "Community",
-  description: "Join the CupraFlow open-source community on GitHub.",
+  description: "Join the cupraflow open-source community on GitHub.",
 };
 
 const links = [
@@ -14,14 +14,14 @@ const links = [
     icon: Github,
     title: "Source code",
     description: "Browse the full agent source. Fork it, audit it, build on it.",
-    href: "https://github.com/sb-mcampoe/cupraflow",
+    href: "https://github.com/sb-mcampoe/cupra-flow",
     cta: "View on GitHub",
   },
   {
     icon: Bug,
     title: "Report a bug",
     description: "Found something wrong? Open an issue and we'll investigate.",
-    href: "https://github.com/sb-mcampoe/cupraflow/issues/new?template=bug_report.md",
+    href: "https://github.com/sb-mcampoe/cupra-flow/issues/new?template=bug_report.md",
     cta: "Open issue",
   },
   {
@@ -34,15 +34,15 @@ const links = [
   {
     icon: Star,
     title: "Star the repo",
-    description: "Help other developers discover CupraFlow.",
-    href: "https://github.com/sb-mcampoe/cupraflow",
+    description: "Help other developers discover cupraflow.",
+    href: "https://github.com/sb-mcampoe/cupra-flow",
     cta: "Star on GitHub",
   },
   {
     icon: FileText,
     title: "License",
     description: "Apache 2.0 ” free to use, modify, and distribute commercially.",
-    href: "https://github.com/sb-mcampoe/cupraflow/blob/main/LICENSE",
+    href: "https://github.com/sb-mcampoe/cupra-flow/blob/main/LICENSE",
     cta: "Read license",
   },
 ];
@@ -57,18 +57,18 @@ export default function CommunityPage() {
             Community
           </h1>
           <p className="text-lg text-[var(--color-muted)] max-w-xl mx-auto">
-            CupraFlow is built in the open. Everything happens on GitHub ” issues, pull requests,
+            cupraflow is built in the open. Everything happens on GitHub ” issues, pull requests,
             discussions, releases.
           </p>
           <div className="flex flex-wrap justify-center gap-3 mt-8">
             <Button
-              href="https://github.com/sb-mcampoe/cupraflow"
+              href="https://github.com/sb-mcampoe/cupra-flow"
               variant="primary"
               size="md"
               external
             >
               <Github size={16} />
-              sb-mcampoe/cupraflow
+              sb-mcampoe/cupra-flow
             </Button>
           </div>
         </div>
@@ -104,7 +104,7 @@ export default function CommunityPage() {
         {/* SecuryBlack note */}
         <div className="text-center border-t border-[var(--color-border)] pt-12">
           <p className="text-sm text-[var(--color-muted)] max-w-lg mx-auto">
-            CupraFlow is an independent open-source project maintained by{" "}
+            cupraflow is an independent open-source project maintained by{" "}
             <a
               href="https://securyblack.com"
               target="_blank"

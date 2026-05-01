@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { Terminal, MonitorDown, ArrowRight } from "lucide-react";
 import { Layout } from "@/components/layout";
 import { Badge } from "@/components/ui/Badge";
@@ -11,11 +11,11 @@ import { Button } from "@/components/ui/Button";
 export const metadata: Metadata = {
   title: "Install",
   description:
-    "Install CupraFlow on Windows in under 60 seconds with a single PowerShell command.",
+    "Install cupraflow on Windows in under 60 seconds with a single PowerShell command.",
 };
 
 const platforms = [
-  { os: "Windows", arch: "x86_64", status: "stable", binary: "cupraflow-x86_64-pc-windows-msvc.zip" },
+  { os: "Windows", arch: "x86_64", status: "stable", binary: "cupra-flow-x86_64-pc-windows-msvc.zip" },
   { os: "Windows", arch: "ARM64", status: "beta", binary: "cupraflow-aarch64-pc-windows-msvc.zip" },
   { os: "Linux", arch: "x86_64 (amd64)", status: "planned", binary: "”" },
   { os: "Linux", arch: "ARM64 (aarch64)", status: "planned", binary: "”" },
@@ -53,14 +53,14 @@ const windowsSteps = [
     children: (
       <>
         <CodeBlock
-          code={`Get-Service -Name CupraFlow`}
+          code={`Get-Service -Name cupraflow`}
           language="powershell"
           filename="Verify"
         />
         <CodeBlock
           code={`Status   Name          DisplayName
 -------  ----          -----------
-Running  CupraFlow      CupraFlow Agent`}
+Running  cupraflow      cupraflow Agent`}
           language="powershell"
           filename="Expected output"
           showCopy={false}
@@ -74,11 +74,11 @@ Running  CupraFlow      CupraFlow Agent`}
       <>
         <p className="text-sm text-[var(--color-muted)]">
           The default config is created at{" "}
-          <code className="font-mono text-xs">C:\ProgramData\CupraFlow\config.toml</code>.
+          <code className="font-mono text-xs">C:\ProgramData\cupraflow\config.toml</code>.
           Customize ports, logging, and backend pool.
         </p>
         <CodeBlock
-          code={`# C:\\ProgramData\\CupraFlow\\config.toml
+          code={`# C:\\ProgramData\\cupraflow\\config.toml
 [server]
 port = 8080
 bind_address = "0.0.0.0"
@@ -100,7 +100,7 @@ backends = [
         />
         <Callout variant="info">
           After editing the config, restart the service:{" "}
-          <code className="font-mono text-xs">Restart-Service -Name CupraFlow</code>
+          <code className="font-mono text-xs">Restart-Service -Name cupraflow</code>
         </Callout>
       </>
     ),
@@ -113,12 +113,12 @@ const linuxSteps = [
     children: (
       <>
         <p className="text-sm text-[var(--color-muted)]">
-          Linux builds and systemd integration are on the roadmap. For now, CupraFlow runs on
+          Linux builds and systemd integration are on the roadmap. For now, cupraflow runs on
           Windows Server 2019/2022 and Windows 10/11.
         </p>
         <Callout variant="info">
           Track progress on{" "}
-          <a href="https://github.com/sb-mcampoe/cupraflow/issues" className="text-[var(--color-primary)] hover:underline">
+          <a href="https://github.com/sb-mcampoe/cupra-flow/issues" className="text-[var(--color-primary)] hover:underline">
             GitHub Issues
           </a>.
         </Callout>
@@ -135,7 +135,7 @@ export default function InstallPage() {
         <div className="mb-12">
           <Badge variant="primary" className="mb-4">v0.1.0</Badge>
           <h1 className="text-4xl sm:text-5xl font-bold text-[var(--color-text)] mb-4">
-            Install CupraFlow
+            Install cupraflow
           </h1>
           <p className="text-lg text-[var(--color-muted)] max-w-2xl">
             A single PowerShell command installs the agent, registers it as a Windows Service,
@@ -178,19 +178,19 @@ export default function InstallPage() {
           </p>
           <CodeBlock
             code={`# Start
-Start-Service -Name CupraFlow
+Start-Service -Name cupraflow
 
 # Stop
-Stop-Service -Name CupraFlow
+Stop-Service -Name cupraflow
 
 # Restart
-Restart-Service -Name CupraFlow
+Restart-Service -Name cupraflow
 
 # Check status
-Get-Service -Name CupraFlow
+Get-Service -Name cupraflow
 
 # View logs
-Get-Content "C:\ProgramData\CupraFlow\cupraflow.log" -Tail 50`}
+Get-Content "C:\ProgramData\cupraflow\cupraflow.log" -Tail 50`}
             language="powershell"
             filename="PowerShell"
           />
@@ -200,7 +200,7 @@ Get-Content "C:\ProgramData\CupraFlow\cupraflow.log" -Tail 50`}
         <section className="mb-16">
           <h2 className="text-xl font-semibold text-[var(--color-text)] mb-2">Configuration</h2>
           <p className="text-sm text-[var(--color-muted)] mb-6">
-            CupraFlow reads configuration from a TOML file. Environment variables are not yet supported.
+            cupraflow reads configuration from a TOML file. Environment variables are not yet supported.
           </p>
 
           <div className="overflow-x-auto rounded-[var(--radius-lg)] border border-[var(--color-border)] mb-6">
@@ -236,7 +236,7 @@ Get-Content "C:\ProgramData\CupraFlow\cupraflow.log" -Tail 50`}
           </div>
 
           <CodeBlock
-            code={`# C:\\ProgramData\\CupraFlow\\config.toml
+            code={`# C:\\ProgramData\\cupraflow\\config.toml
 [server]
 port = 8080
 bind_address = "0.0.0.0"
@@ -246,7 +246,7 @@ level = "info"
 format = "json"
 
 [service]
-name = "CupraFlow"
+name = "cupraflow"
 description = "Agente de gestion de red y balanceo de carga"
 startup = "auto"
 
@@ -300,12 +300,12 @@ backends = [
           <h2 className="text-xl font-semibold text-[var(--color-text)] mb-6">Uninstall</h2>
           <CodeBlock
             code={`# Stop and remove the service
-Stop-Service -Name CupraFlow
-sc.exe delete CupraFlow
+Stop-Service -Name cupraflow
+sc.exe delete cupraflow
 
 # Remove files
-Remove-Item -Recurse -Force "C:\Program Files\CupraFlow"
-Remove-Item -Recurse -Force "C:\ProgramData\CupraFlow"`}
+Remove-Item -Recurse -Force "C:\Program Files\cupraflow"
+Remove-Item -Recurse -Force "C:\ProgramData\cupraflow"`}
             language="powershell"
           />
         </section>
@@ -328,7 +328,7 @@ Remove-Item -Recurse -Force "C:\ProgramData\CupraFlow"`}
               {
                 title: "Contributing",
                 description: "Open an issue or submit a PR on GitHub.",
-                href: "https://github.com/sb-mcampoe/cupraflow",
+                href: "https://github.com/sb-mcampoe/cupra-flow",
               },
               {
                 title: "Changelog",

@@ -1,4 +1,4 @@
-﻿export type ReleaseType = "major" | "minor" | "patch";
+export type ReleaseType = "major" | "minor" | "patch";
 
 export interface ChangelogEntry {
   version: string;
@@ -37,8 +37,8 @@ export const changelog: ChangelogEntry[] = [
         items: [
           "Opt-in usage telemetry ” the agent can now send anonymous usage pings (version, OS, arch, uptime, metrics exported, buffer occupancy) to SecuryBlack once every 24 hours. Disabled by default for all installations, including agents upgrading from previous versions.",
           "Remote configuration fetch ” on startup the agent calls the SecuryBlack API with its token to retrieve server-side settings. This allows telemetry to be enabled or disabled per agent from the dashboard without touching the local config file.",
-          "New config key `telemetry_enabled` (absent â†’ defers to server, `true` â†’ always on, `false` â†’ always off) and corresponding `CupraFlow_TELEMETRY` environment variable override.",
-          "New optional config key `api_url` and `CupraFlow_API_URL` environment variable for self-hosted or staging deployments.",
+          "New config key `telemetry_enabled` (absent â†’ defers to server, `true` â†’ always on, `false` â†’ always off) and corresponding `cupraflow_TELEMETRY` environment variable override.",
+          "New optional config key `api_url` and `cupraflow_API_URL` environment variable for self-hosted or staging deployments.",
         ],
       },
     ],
@@ -52,7 +52,7 @@ export const changelog: ChangelogEntry[] = [
       {
         label: "Added",
         items: [
-          "Agent version is now attached as the `service.version` resource attribute in every OTLP export, allowing the ingestor to track which version of CupraFlow each agent is running.",
+          "Agent version is now attached as the `service.version` resource attribute in every OTLP export, allowing the ingestor to track which version of cupraflow each agent is running.",
         ],
       },
       {

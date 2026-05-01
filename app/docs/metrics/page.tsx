@@ -1,10 +1,10 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { Prose } from "@/components/ui/Prose";
 import { CodeBlock } from "@/components/ui/CodeBlock";
 
 export const metadata: Metadata = {
   title: "Metrics",
-  description: "Full list of metrics collected by the CupraFlow agent.",
+  description: "Full list of metrics collected by the cupraflow agent.",
 };
 
 const metrics = [

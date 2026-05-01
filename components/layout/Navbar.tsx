@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
@@ -41,7 +41,7 @@ export function Navbar() {
               <Activity size={22} strokeWidth={2.5} />
             </span>
             <span className="font-semibold text-[var(--color-text)] text-lg tracking-tight">
-              CupraFlow
+              cupraflow
             </span>
           </Link>
           <a
@@ -75,7 +75,7 @@ export function Navbar() {
         {/* Desktop CTAs */}
         <div className="hidden md:flex items-center gap-2">
           <Button
-            href="https://github.com/sb-mcampoe/cupraflow"
+            href="https://github.com/sb-mcampoe/cupra-flow"
             variant="ghost"
             size="sm"
             external
@@ -113,7 +113,7 @@ export function Navbar() {
           ))}
           <div className="flex gap-2 mt-2">
             <Button
-              href="https://github.com/sb-mcampoe/cupraflow"
+              href="https://github.com/sb-mcampoe/cupra-flow"
               variant="ghost"
               size="sm"
               external

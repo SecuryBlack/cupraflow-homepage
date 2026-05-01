@@ -1,8 +1,8 @@
-﻿---
-title: "Why we built CupraFlow"
+---
+title: "Why we built cupraflow"
 date: "2025-03-01"
 author: "SecuryBlack"
-summary: "Monitoring agents shouldn't cost more to run than the applications they monitor. Here's why we built CupraFlow."
+summary: "Monitoring agents shouldn't cost more to run than the applications they monitor. Here's why we built cupraflow."
 tags: ["announcement", "rust", "observability"]
 ---
 
@@ -32,14 +32,14 @@ We could have built a custom protocol, but that would mean custom integrations o
 OTLP (OpenTelemetry Protocol) over gRPC is becoming the standard for telemetry transport. Any
 modern observability stack ” Grafana, Datadog, Honeycomb, your own collector ” can receive it.
 
-Choosing OTLP means CupraFlow works with whatever you already have.
+Choosing OTLP means cupraflow works with whatever you already have.
 
 ## Open source, no lock-in
 
 The agent is Apache 2.0. You can point it at your own OTLP collector ” you don't need to use
 SecuryBlack's infrastructure. We believe monitoring tooling should be transparent and auditable.
 
-We're releasing CupraFlow as a standalone project because it solves a real problem, and because
+We're releasing cupraflow as a standalone project because it solves a real problem, and because
 we think the community can help make it better faster than we can alone.
 
 ## What's next
@@ -51,5 +51,5 @@ v0.1.0 covers the core: CPU, RAM, disk, and network metrics over gRPC. On the ro
 - Docker and Kubernetes integrations
 - A public Prometheus-compatible endpoint as an alternative to OTLP
 
-If you have a use case that isn't covered, [open an issue](https://github.com/sb-mcampoe/cupraflow/issues).
+If you have a use case that isn't covered, [open an issue](https://github.com/sb-mcampoe/cupra-flow/issues).
 We read them all.

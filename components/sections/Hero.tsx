@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { motion } from "framer-motion";
 import { ArrowRight, Github, Activity } from "lucide-react";
@@ -83,7 +83,7 @@ export function Hero() {
           custom={0.2}
           className="max-w-2xl text-lg sm:text-xl text-[var(--color-muted)] leading-relaxed"
         >
-          CupraFlow is a network management agent written in{" "}
+          cupraflow is a network management agent written in{" "}
           <span className="text-[var(--color-text)]">Rust</span>. Runs as a native{" "}
           <span className="text-[var(--color-text)]">Windows Service</span>{" "}
           with one-line install. L4/L7 proxy, health checks, and high availability out of the box.
@@ -102,7 +102,7 @@ export function Hero() {
             <ArrowRight size={16} />
           </Button>
           <Button
-            href="https://github.com/sb-mcampoe/cupraflow"
+            href="https://github.com/sb-mcampoe/cupra-flow"
             variant="outline"
             size="lg"
             external

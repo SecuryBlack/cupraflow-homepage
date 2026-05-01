@@ -1,6 +1,6 @@
-﻿@import "tailwindcss";
+@import "tailwindcss";
 
-/* â”€â”€â”€ CupraFlow Design Tokens â”€â”€â”€ */
+/* â”€â”€â”€ cupraflow Design Tokens â”€â”€â”€ */
 :root {
   /* Colors */
   --color-bg:        #0E0E0E;

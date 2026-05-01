@@ -5,7 +5,7 @@ const footerLinks = {
   Product: [
     { label: "Install",   href: "/install" },
     { label: "Changelog", href: "/changelog" },
-    { label: "Roadmap",   href: "https://github.com/sb-mcampoe/cupraflow/issues", external: true },
+    { label: "Roadmap",   href: "https://github.com/sb-mcampoe/cupra-flow/issues", external: true },
   ],
   Docs: [
     { label: "Introduction",  href: "/docs" },
@@ -14,9 +14,9 @@ const footerLinks = {
     { label: "Contributing",  href: "/docs/contributing" },
   ],
   Community: [
-    { label: "GitHub",  href: "https://github.com/sb-mcampoe/cupraflow", external: true },
-    { label: "Issues",  href: "https://github.com/sb-mcampoe/cupraflow/issues", external: true },
-    { label: "License", href: "https://github.com/sb-mcampoe/cupraflow/blob/main/LICENSE", external: true },
+    { label: "GitHub",  href: "https://github.com/sb-mcampoe/cupra-flow", external: true },
+    { label: "Issues",  href: "https://github.com/sb-mcampoe/cupra-flow/issues", external: true },
+    { label: "License", href: "https://github.com/sb-mcampoe/cupra-flow/blob/main/LICENSE", external: true },
   ],
 };
 
@@ -32,20 +32,20 @@ export function Footer() {
                 <Activity size={20} strokeWidth={2.5} />
               </span>
               <span className="font-semibold text-[var(--color-text)] tracking-tight">
-                CupraFlow
+                cupraflow
               </span>
             </Link>
             <p className="text-sm text-[var(--color-muted)] leading-relaxed mb-4">
               Load balancer and network management agent for Windows. Written in Rust.
             </p>
             <a
-              href="https://github.com/sb-mcampoe/cupraflow"
+              href="https://github.com/sb-mcampoe/cupra-flow"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-sm text-[var(--color-muted)] hover:text-[var(--color-primary)] transition-colors"
             >
               <Github size={15} />
-              sb-mcampoe/cupraflow
+              sb-mcampoe/cupra-flow
             </a>
             <div className="mt-5 pt-4 border-t border-[var(--color-border)]">
               <p className="text-xs text-[var(--color-muted)] mb-1">Made by</p>
@@ -91,7 +91,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="mt-12 pt-8 border-t border-[var(--color-border)] flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-[var(--color-muted)]">
-            © {new Date().getFullYear()} CupraFlow. Licensed under Apache 2.0.
+            © {new Date().getFullYear()} cupraflow. Licensed under Apache 2.0.
           </p>
           <a
             href="https://securyblack.com"
@@ -99,7 +99,7 @@ export function Footer() {
             rel="noopener noreferrer"
             className="text-xs text-[var(--color-muted)] hover:text-[var(--color-primary)] transition-colors"
           >
-            CupraFlow by SecuryBlack
+            cupraflow by SecuryBlack
           </a>
         </div>
       </div>

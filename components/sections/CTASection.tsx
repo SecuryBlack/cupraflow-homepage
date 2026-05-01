@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { ArrowRight, Github } from "lucide-react";
@@ -42,7 +42,7 @@ export function CTASection() {
                 <ArrowRight size={16} />
               </Button>
               <Button
-                href="https://github.com/sb-mcampoe/cupraflow"
+                href="https://github.com/sb-mcampoe/cupra-flow"
                 variant="ghost"
                 size="lg"
                 external

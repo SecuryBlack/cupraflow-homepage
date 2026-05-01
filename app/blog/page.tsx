@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Layout } from "@/components/layout";
@@ -9,7 +9,7 @@ export const dynamic = "force-static";
 
 export const metadata: Metadata = {
   title: "Blog",
-  description: "Articles and updates from the CupraFlow team.",
+  description: "Articles and updates from the cupraflow team.",
 };
 
 export default function BlogPage() {

@@ -67,7 +67,7 @@ export function Features() {
         {/* Section header */}
         <div className="text-center mb-10 md:mb-16">
           <p className="text-sm font-semibold text-[var(--color-primary)] uppercase tracking-widest mb-3">
-            Why CupraFlow
+            Why cupraflow
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-text)]">
             Built for production networks

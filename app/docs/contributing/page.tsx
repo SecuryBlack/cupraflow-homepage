@@ -1,11 +1,11 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { Prose } from "@/components/ui/Prose";
 import { CodeBlock } from "@/components/ui/CodeBlock";
 import { Callout } from "@/components/ui/Callout";
 
 export const metadata: Metadata = {
   title: "Contributing",
-  description: "How to contribute to the CupraFlow open-source project.",
+  description: "How to contribute to the cupraflow open-source project.",
 };
 
 export default function ContributingPage() {
@@ -13,7 +13,7 @@ export default function ContributingPage() {
     <Prose>
       <h1>Contributing</h1>
       <p>
-        CupraFlow is an open-source project and contributions are welcome. This guide explains how
+        cupraflow is an open-source project and contributions are welcome. This guide explains how
         to set up a local development environment, run the agent, and submit a pull request.
       </p>
 
@@ -30,14 +30,14 @@ export default function ContributingPage() {
       <h2>Local setup</h2>
       <CodeBlock
         code={`# Clone the repo
-git clone https://github.com/sb-mcampoe/cupraflow.git
+git clone https://github.com/sb-mcampoe/cupra-flow.git
 cd oxi-pulse
 
 # Build in debug mode
 cargo build
 
 # Run the agent locally (set a dummy endpoint for testing)
-CupraFlow_ENDPOINT=http://localhost:4317 CupraFlow_TOKEN=test cargo run`}
+cupraflow_ENDPOINT=http://localhost:4317 cupraflow_TOKEN=test cargo run`}
         language="bash"
         filename="Getting started"
       />

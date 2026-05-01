@@ -1,4 +1,4 @@
-﻿# CupraFlow Homepage ” Hoja de Ruta
+# cupraflow Homepage ” Hoja de Ruta
 
 > **Stack:** Next.js 15 · Tailwind CSS v4 · MDX · Framer Motion · Shiki
 > **Dominio:** cupraflow.dev
@@ -58,7 +58,7 @@
 
 - [x] **5.1** Sistema de rutas para docs con layout propio
 - [x] **5.2** Sidebar sticky con highlight de ruta activa + drawer móvil
-- [x] **5.3** `Introduction` ” qué es CupraFlow, arquitectura, licencia
+- [x] **5.3** `Introduction` ” qué es cupraflow, arquitectura, licencia
 - [x] **5.4** `Quick Start` ” instalar y tener datos en 5 minutos
 - [x] **5.5** `Configuration` ” tabla de env vars + config.toml + systemd override
 - [x] **5.6** `Metrics` ” tabla de métricas OTLP + payload example + detalles por SO

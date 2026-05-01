@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { Github } from "lucide-react";
 import { Layout } from "@/components/layout";
 import { Badge } from "@/components/ui/Badge";
@@ -7,7 +7,7 @@ import { changelog, type ChangelogEntry } from "@/lib/changelog";
 
 export const metadata: Metadata = {
   title: "Changelog",
-  description: "Release history and changelog for CupraFlow.",
+  description: "Release history and changelog for cupraflow.",
 };
 
 const sectionColors: Record<string, string> = {
@@ -41,11 +41,11 @@ export default function ChangelogPage() {
               Changelog
             </h1>
             <p className="text-[var(--color-muted)]">
-              All notable changes to CupraFlow, most recent first.
+              All notable changes to cupraflow, most recent first.
             </p>
           </div>
           <Button
-            href="https://github.com/sb-mcampoe/cupraflow/releases"
+            href="https://github.com/sb-mcampoe/cupra-flow/releases"
             variant="outline"
             size="sm"
             external
@@ -73,7 +73,7 @@ export default function ChangelogPage() {
                 {/* Version header */}
                 <div className="flex flex-wrap items-center gap-3 mb-2">
                   <a
-                    href={`https://github.com/sb-mcampoe/cupraflow/releases/tag/v${entry.version}`}
+                    href={`https://github.com/sb-mcampoe/cupra-flow/releases/tag/v${entry.version}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-2xl font-bold text-[var(--color-text)] hover:text-[var(--color-primary)] transition-colors"
@@ -126,7 +126,7 @@ export default function ChangelogPage() {
               <div className="w-3 h-3 rounded-full bg-[var(--color-border)]" />
             </div>
             <p className="text-sm text-[var(--color-muted)] pb-4 pt-0.5">
-              CupraFlow project started
+              cupraflow project started
             </p>
           </div>
         </div>

@@ -1,20 +1,20 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { Prose } from "@/components/ui/Prose";
 import { CodeBlock } from "@/components/ui/CodeBlock";
 import { Callout } from "@/components/ui/Callout";
 
 export const metadata: Metadata = {
   title: "Configuration",
-  description: "All environment variables and config file options for CupraFlow.",
+  description: "All environment variables and config file options for cupraflow.",
 };
 
 const envVars = [
-  { name: "CupraFlow_TOKEN",         required: true,  default: "”",                                  desc: "Agent authentication token" },
-  { name: "CupraFlow_ENDPOINT",      required: false, default: "https://ingest.cupraflow.dev",        desc: "OTLP gRPC endpoint" },
-  { name: "CupraFlow_INTERVAL_SECS", required: false, default: "10",                                 desc: "Metric collection interval in seconds" },
-  { name: "CupraFlow_LOG_LEVEL",     required: false, default: "info",                               desc: "Log verbosity: trace, debug, info, warn, error" },
-  { name: "CupraFlow_BUFFER_PATH",   required: false, default: "/var/lib/CupraFlow/buffer",           desc: "Local offline buffer directory" },
-  { name: "CupraFlow_BUFFER_MAX_MB", required: false, default: "100",                               desc: "Max offline buffer size in MB" },
+  { name: "cupraflow_TOKEN",         required: true,  default: "”",                                  desc: "Agent authentication token" },
+  { name: "cupraflow_ENDPOINT",      required: false, default: "https://ingest.cupraflow.dev",        desc: "OTLP gRPC endpoint" },
+  { name: "cupraflow_INTERVAL_SECS", required: false, default: "10",                                 desc: "Metric collection interval in seconds" },
+  { name: "cupraflow_LOG_LEVEL",     required: false, default: "info",                               desc: "Log verbosity: trace, debug, info, warn, error" },
+  { name: "cupraflow_BUFFER_PATH",   required: false, default: "/var/lib/cupraflow/buffer",           desc: "Local offline buffer directory" },
+  { name: "cupraflow_BUFFER_MAX_MB", required: false, default: "100",                               desc: "Max offline buffer size in MB" },
 ];
 
 export default function ConfigurationPage() {
@@ -22,7 +22,7 @@ export default function ConfigurationPage() {
     <Prose>
       <h1>Configuration</h1>
       <p>
-        CupraFlow reads configuration from environment variables or a{" "}
+        cupraflow reads configuration from environment variables or a{" "}
         <code>config.toml</code> file. Environment variables always take priority over the
         config file.
       </p>
@@ -63,9 +63,9 @@ export default function ConfigurationPage() {
         Alternatively, place a <code>config.toml</code> file at one of the following locations:
       </p>
       <ul>
-        <li><code>/etc/CupraFlow/config.toml</code> (Linux, system-wide)</li>
-        <li><code>~/.config/CupraFlow/config.toml</code> (Linux, user-level)</li>
-        <li><code>C:\ProgramData\CupraFlow\config.toml</code> (Windows)</li>
+        <li><code>/etc/cupraflow/config.toml</code> (Linux, system-wide)</li>
+        <li><code>~/.config/cupraflow/config.toml</code> (Linux, user-level)</li>
+        <li><code>C:\ProgramData\cupraflow\config.toml</code> (Windows)</li>
       </ul>
 
       <CodeBlock
@@ -74,7 +74,7 @@ token          = "op_live_xxxxxxxxxxxx"
 endpoint       = "https://ingest.cupraflow.dev"
 interval_secs  = 10
 log_level      = "info"
-buffer_path    = "/var/lib/CupraFlow/buffer"
+buffer_path    = "/var/lib/cupraflow/buffer"
 buffer_max_mb  = 100`}
         language="toml"
         filename="config.toml"
@@ -100,16 +100,16 @@ buffer_max_mb  = 100`}
       </p>
       <CodeBlock
         code={`# Create override directory
-mkdir -p /etc/systemd/system/CupraFlow.service.d
+mkdir -p /etc/systemd/system/cupraflow.service.d
 
 # Create override file
-cat > /etc/systemd/system/CupraFlow.service.d/override.conf << EOF
+cat > /etc/systemd/system/cupraflow.service.d/override.conf << EOF
 [Service]
-Environment="CupraFlow_LOG_LEVEL=debug"
-Environment="CupraFlow_INTERVAL_SECS=5"
+Environment="cupraflow_LOG_LEVEL=debug"
+Environment="cupraflow_INTERVAL_SECS=5"
 EOF
 
-systemctl daemon-reload && systemctl restart CupraFlow`}
+systemctl daemon-reload && systemctl restart cupraflow`}
         language="bash"
         filename="systemd override"
       />

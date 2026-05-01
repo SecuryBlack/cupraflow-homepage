@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -24,13 +24,13 @@ const windowsSteps = [
     title: "The installer sets up the service automatically",
     code: `Status   Name          DisplayName
 -------  ----          -----------
-Running  CupraFlow      CupraFlow Agent`,
+Running  cupraflow      cupraflow Agent`,
     language: "powershell",
   },
   {
     step: "3",
     title: "Edit config.toml to add your backends",
-    code: `# C:\\ProgramData\\CupraFlow\\config.toml
+    code: `# C:\\ProgramData\\cupraflow\\config.toml
 [server]
 port = 8080
 bind_address = "0.0.0.0"
@@ -50,7 +50,7 @@ const linuxSteps = [
   {
     step: "1",
     title: "Download the latest release",
-    code: `curl -fsSL https://github.com/sb-mcampoe/cupraflow/releases/latest/download/cupraflow-x86_64-pc-windows-msvc.zip -o cupraflow.zip`,
+    code: `curl -fsSL https://github.com/sb-mcampoe/cupra-flow/releases/latest/download/cupra-flow-x86_64-pc-windows-msvc.zip -o cupraflow.zip`,
     language: "bash",
   },
   {

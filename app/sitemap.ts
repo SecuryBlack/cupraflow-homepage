@@ -1,4 +1,4 @@
-﻿import type { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
 import { getAllPosts } from "@/lib/blog";
 
 const BASE_URL = "https://cupraflow.dev";

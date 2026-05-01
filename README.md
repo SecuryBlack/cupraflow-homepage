@@ -1,6 +1,6 @@
-﻿# CupraFlow Homepage
+# cupraflow Homepage
 
-Official website for [CupraFlow](https://cupraflow.dev) ” an ultralight, open-source server monitoring agent written in Rust by [SecuryBlack](https://securyblack.com).
+Official website for [cupraflow](https://cupraflow.dev) ” an ultralight, open-source server monitoring agent written in Rust by [SecuryBlack](https://securyblack.com).
 
 ## Stack
 
