@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Prose } from "@/components/ui/Prose";
 import { CodeBlock } from "@/components/ui/CodeBlock";
 import { Callout } from "@/components/ui/Callout";
 
 export const metadata: Metadata = {
   title: "Auto-Update",
-  description: "How the OxiPulse agent updates itself automatically from GitHub Releases.",
+  description: "How the CupraFlow agent updates itself automatically from GitHub Releases.",
 };
 
 export default function AutoUpdatePage() {
@@ -13,7 +13,7 @@ export default function AutoUpdatePage() {
     <Prose>
       <h1>Auto-update</h1>
       <p>
-        OxiPulse includes a built-in self-update mechanism. Once per day, the agent checks the
+        CupraFlow includes a built-in self-update mechanism. Once per day, the agent checks the
         GitHub Releases page for a newer version. If one is found, it downloads the correct binary
         for the current platform, replaces itself on disk, and exits cleanly so the system service
         manager can restart it.
@@ -53,11 +53,11 @@ export default function AutoUpdatePage() {
 
       <h2>Logs</h2>
       <CodeBlock
-        code={`INFO oxipulse::updater: checking for updates (current: v0.1.0)
-INFO oxipulse::updater: new version available: v0.2.0
-INFO oxipulse::updater: downloading oxipulse-linux-x86_64 v0.2.0
-INFO oxipulse::updater: checksum verified, replacing binary
-INFO oxipulse::updater: update complete, restarting`}
+        code={`INFO CupraFlow::updater: checking for updates (current: v0.1.0)
+INFO CupraFlow::updater: new version available: v0.2.0
+INFO CupraFlow::updater: downloading CupraFlow-linux-x86_64 v0.2.0
+INFO CupraFlow::updater: checksum verified, replacing binary
+INFO CupraFlow::updater: update complete, restarting`}
         language="bash"
         filename="Update log output"
         showCopy={false}
@@ -70,7 +70,7 @@ INFO oxipulse::updater: update complete, restarting`}
       </p>
       <CodeBlock
         code={`# Environment variable
-OXIPULSE_AUTO_UPDATE=false
+CupraFlow_AUTO_UPDATE=false
 
 # Or in config.toml
 auto_update = false`}
@@ -84,10 +84,10 @@ auto_update = false`}
       </p>
       <CodeBlock
         code={`# Linux
-OXIPULSE_VERSION=v0.1.0 curl -fsSL https://install.oxipulse.dev | sudo bash
+CupraFlow_VERSION=v0.1.0 curl -fsSL https://install.CupraFlow.dev | sudo bash
 
 # Windows
-$env:OXIPULSE_VERSION="v0.1.0"; irm https://install.oxipulse.dev/windows | iex`}
+$env:CupraFlow_VERSION="v0.1.0"; irm https://install.CupraFlow.dev/windows | iex`}
         language="bash"
       />
 

@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Prose } from "@/components/ui/Prose";
 import { CodeBlock } from "@/components/ui/CodeBlock";
 
 export const metadata: Metadata = {
   title: "Metrics",
-  description: "Full list of metrics collected by the OxiPulse agent.",
+  description: "Full list of metrics collected by the CupraFlow agent.",
 };
 
 const metrics = [
@@ -86,19 +86,19 @@ export default function MetricsPage() {
       <h2>Collection details</h2>
       <ul>
         <li>
-          <strong>CPU</strong> — read from <code>/proc/stat</code> (Linux) or{" "}
+          <strong>CPU</strong> â€” read from <code>/proc/stat</code> (Linux) or{" "}
           <code>GetSystemTimes</code> (Windows). Averaged across all logical cores.
         </li>
         <li>
-          <strong>Memory</strong> — read from <code>/proc/meminfo</code> (Linux) or{" "}
+          <strong>Memory</strong> â€” read from <code>/proc/meminfo</code> (Linux) or{" "}
           <code>GlobalMemoryStatusEx</code> (Windows).
         </li>
         <li>
-          <strong>Disk</strong> — read from <code>statvfs("/")</code> (Linux) or the system
+          <strong>Disk</strong> â€” read from <code>statvfs("/")</code> (Linux) or the system
           drive (Windows). Only the root/system partition is measured in v0.1.
         </li>
         <li>
-          <strong>Network</strong> — cumulative counters from <code>/proc/net/dev</code> (Linux)
+          <strong>Network</strong> â€” cumulative counters from <code>/proc/net/dev</code> (Linux)
           or <code>GetIfTable</code> (Windows). All interfaces are summed.
         </li>
       </ul>

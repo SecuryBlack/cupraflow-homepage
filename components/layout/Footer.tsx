@@ -1,11 +1,11 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { Activity, Github } from "lucide-react";
 
 const footerLinks = {
   Product: [
     { label: "Install",   href: "/install" },
     { label: "Changelog", href: "/changelog" },
-    { label: "Roadmap",   href: "https://github.com/securyblack/oxi-pulse/issues", external: true },
+    { label: "Roadmap",   href: "https://github.com/sb-mcampoe/cupraflow/issues", external: true },
   ],
   Docs: [
     { label: "Introduction",  href: "/docs" },
@@ -14,9 +14,9 @@ const footerLinks = {
     { label: "Contributing",  href: "/docs/contributing" },
   ],
   Community: [
-    { label: "GitHub",  href: "https://github.com/securyblack/oxi-pulse", external: true },
-    { label: "Issues",  href: "https://github.com/securyblack/oxi-pulse/issues", external: true },
-    { label: "License", href: "https://github.com/securyblack/oxi-pulse/blob/main/LICENSE", external: true },
+    { label: "GitHub",  href: "https://github.com/sb-mcampoe/cupraflow", external: true },
+    { label: "Issues",  href: "https://github.com/sb-mcampoe/cupraflow/issues", external: true },
+    { label: "License", href: "https://github.com/sb-mcampoe/cupraflow/blob/main/LICENSE", external: true },
   ],
 };
 
@@ -32,14 +32,14 @@ export function Footer() {
                 <Activity size={20} strokeWidth={2.5} />
               </span>
               <span className="font-semibold text-[var(--color-text)] tracking-tight">
-                OxiPulse
+                CupraFlow
               </span>
             </Link>
             <p className="text-sm text-[var(--color-muted)] leading-relaxed mb-4">
               Ultralight telemetry agent for your servers. Written in Rust.
             </p>
             <a
-              href="https://github.com/securyblack/oxi-pulse"
+              href="https://github.com/sb-mcampoe/cupraflow"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-sm text-[var(--color-muted)] hover:text-[var(--color-primary)] transition-colors"
@@ -55,7 +55,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="text-sm font-semibold text-[var(--color-text)] hover:text-[var(--color-primary)] transition-colors"
               >
-                SecuryBlack →
+                SecuryBlack â†’
               </a>
               <p className="text-xs text-[var(--color-muted)] mt-1 leading-relaxed">
                 Cybersecurity tools for the modern web.
@@ -91,7 +91,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="mt-12 pt-8 border-t border-[var(--color-border)] flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-[var(--color-muted)]">
-            © {new Date().getFullYear()} OxiPulse. Licensed under Apache 2.0.
+            Â© {new Date().getFullYear()} CupraFlow. Licensed under Apache 2.0.
           </p>
           <a
             href="https://securyblack.com"
@@ -99,7 +99,7 @@ export function Footer() {
             rel="noopener noreferrer"
             className="text-xs text-[var(--color-muted)] hover:text-[var(--color-primary)] transition-colors"
           >
-            OxiPulse by SecuryBlack
+            CupraFlow by SecuryBlack
           </a>
         </div>
       </div>

@@ -1,6 +1,6 @@
-# OxiPulse Homepage
+﻿# CupraFlow Homepage
 
-Official website for [OxiPulse](https://oxipulse.dev) — an ultralight, open-source server monitoring agent written in Rust by [SecuryBlack](https://securyblack.com).
+Official website for [CupraFlow](https://CupraFlow.dev) â€” an ultralight, open-source server monitoring agent written in Rust by [SecuryBlack](https://securyblack.com).
 
 ## Stack
 
@@ -43,7 +43,7 @@ The site deploys automatically on every push to `main` via Cloudflare CI/CD.
 
 ## Adding a blog post
 
-Edit `lib/blog-data.ts` and add a new entry to the `posts` array. No filesystem or MDX pipeline required — content is bundled at build time.
+Edit `lib/blog-data.ts` and add a new entry to the `posts` array. No filesystem or MDX pipeline required â€” content is bundled at build time.
 
 ## Project structure
 
@@ -62,7 +62,7 @@ content/blog/         Legacy MDX files (superseded by lib/blog-data.ts)
 
 This repository uses a dual license:
 
-- **Source code** (components, scripts, styles) — [MIT](./LICENSE)
-- **Written content, documentation and Markdown files** (`.md`, `.mdx`) — [CC BY 4.0](./LICENSE-CONTENT)
+- **Source code** (components, scripts, styles) â€” [MIT](./LICENSE)
+- **Written content, documentation and Markdown files** (`.md`, `.mdx`) â€” [CC BY 4.0](./LICENSE-CONTENT)
 
-© 2025 [SecuryBlack](https://securyblack.com)
+Â© 2025 [SecuryBlack](https://securyblack.com)

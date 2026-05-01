@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -16,20 +16,20 @@ const linuxSteps = [
   {
     step: "1",
     title: "Install with one command",
-    code: `curl -fsSL https://install.oxipulse.dev | sudo bash`,
+    code: `curl -fsSL https://install.CupraFlow.dev | sudo bash`,
     language: "bash",
   },
   {
     step: "2",
     title: "The installer will prompt for your auth token",
-    code: `Enter your OxiPulse token: op_live_xxxxxxxxxxxx`,
+    code: `Enter your CupraFlow token: op_live_xxxxxxxxxxxx`,
     language: "bash",
   },
   {
     step: "3",
     title: "Agent starts automatically as a systemd service",
-    code: `● oxipulse.service - OxiPulse telemetry agent
-     Loaded: loaded (/etc/systemd/system/oxipulse.service)
+    code: `â— CupraFlow.service - CupraFlow telemetry agent
+     Loaded: loaded (/etc/systemd/system/CupraFlow.service)
      Active: active (running)`,
     language: "bash",
   },
@@ -39,13 +39,13 @@ const windowsSteps = [
   {
     step: "1",
     title: "Install with PowerShell (run as Administrator)",
-    code: `irm https://install.oxipulse.dev/windows | iex`,
+    code: `irm https://install.CupraFlow.dev/windows | iex`,
     language: "powershell",
   },
   {
     step: "2",
     title: "The installer will prompt for your auth token",
-    code: `Enter your OxiPulse token: op_live_xxxxxxxxxxxx`,
+    code: `Enter your CupraFlow token: op_live_xxxxxxxxxxxx`,
     language: "powershell",
   },
   {
@@ -53,7 +53,7 @@ const windowsSteps = [
     title: "Agent registers as a Windows Service",
     code: `Status   Name          DisplayName
 -------  ----          -----------
-Running  OxiPulse      OxiPulse Telemetry Agent`,
+Running  CupraFlow      CupraFlow Telemetry Agent`,
     language: "powershell",
   },
 ];
@@ -134,7 +134,7 @@ export function InstallSection() {
         <p className="text-center text-sm text-[var(--color-muted)] mt-8">
           Need advanced configuration?{" "}
           <a href="/install" className="text-[var(--color-primary)] hover:underline">
-            Full install guide →
+            Full install guide â†’
           </a>
         </p>
       </div>

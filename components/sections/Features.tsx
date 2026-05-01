@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import {
@@ -22,7 +22,7 @@ const features = [
     icon: Wifi,
     title: "gRPC / OpenTelemetry",
     description:
-      "Ships metrics via OTLP over gRPC every 10 seconds. Compatible with any OTLP-capable backend — no vendor lock-in.",
+      "Ships metrics via OTLP over gRPC every 10 seconds. Compatible with any OTLP-capable backend â€” no vendor lock-in.",
   },
   {
     icon: Shield,
@@ -67,13 +67,13 @@ export function Features() {
         {/* Section header */}
         <div className="text-center mb-10 md:mb-16">
           <p className="text-sm font-semibold text-[var(--color-primary)] uppercase tracking-widest mb-3">
-            Why OxiPulse
+            Why CupraFlow
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-text)]">
             Built for production, not for demos
           </h2>
           <p className="mt-4 text-[var(--color-muted)] max-w-xl mx-auto">
-            Every decision — language, protocol, install flow — was made to minimize friction
+            Every decision â€” language, protocol, install flow â€” was made to minimize friction
             and resource cost on the machines you care about.
           </p>
         </div>

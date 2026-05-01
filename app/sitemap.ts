@@ -1,7 +1,7 @@
-import type { MetadataRoute } from "next";
+﻿import type { MetadataRoute } from "next";
 import { getAllPosts } from "@/lib/blog";
 
-const BASE_URL = "https://oxipulse.dev";
+const BASE_URL = "https://CupraFlow.dev";
 
 const STATIC_ROUTES: Array<{
   path: string;

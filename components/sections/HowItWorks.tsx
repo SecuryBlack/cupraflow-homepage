@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { Server, ArrowRight, Cpu, LayoutDashboard } from "lucide-react";
@@ -12,7 +12,7 @@ const steps = [
   },
   {
     icon: Cpu,
-    label: "OxiPulse agent",
+    label: "CupraFlow agent",
     description: "Collects metrics every 10s",
     color: "var(--color-primary)",
     highlight: true,
@@ -68,10 +68,10 @@ export function HowItWorks() {
 
           <Connector />
 
-          {/* Agent box — highlighted */}
+          {/* Agent box â€” highlighted */}
           <FlowNode
             icon={Cpu}
-            label="OxiPulse agent"
+            label="CupraFlow agent"
             description="Collects every 10s"
             iconColor="var(--color-primary)"
             highlight
@@ -103,7 +103,7 @@ export function HowItWorks() {
             },
             {
               label: "Configurable",
-              detail: "Endpoint set via env var or config file — never hardcoded",
+              detail: "Endpoint set via env var or config file â€” never hardcoded",
             },
             {
               label: "Self-updating",

@@ -1,20 +1,20 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Prose } from "@/components/ui/Prose";
 import { CodeBlock } from "@/components/ui/CodeBlock";
 import { Callout } from "@/components/ui/Callout";
 
 export const metadata: Metadata = {
   title: "Configuration",
-  description: "All environment variables and config file options for OxiPulse.",
+  description: "All environment variables and config file options for CupraFlow.",
 };
 
 const envVars = [
-  { name: "OXIPULSE_TOKEN",         required: true,  default: "—",                                  desc: "Agent authentication token" },
-  { name: "OXIPULSE_ENDPOINT",      required: false, default: "https://ingest.oxipulse.dev",        desc: "OTLP gRPC endpoint" },
-  { name: "OXIPULSE_INTERVAL_SECS", required: false, default: "10",                                 desc: "Metric collection interval in seconds" },
-  { name: "OXIPULSE_LOG_LEVEL",     required: false, default: "info",                               desc: "Log verbosity: trace, debug, info, warn, error" },
-  { name: "OXIPULSE_BUFFER_PATH",   required: false, default: "/var/lib/oxipulse/buffer",           desc: "Local offline buffer directory" },
-  { name: "OXIPULSE_BUFFER_MAX_MB", required: false, default: "100",                               desc: "Max offline buffer size in MB" },
+  { name: "CupraFlow_TOKEN",         required: true,  default: "â€”",                                  desc: "Agent authentication token" },
+  { name: "CupraFlow_ENDPOINT",      required: false, default: "https://ingest.CupraFlow.dev",        desc: "OTLP gRPC endpoint" },
+  { name: "CupraFlow_INTERVAL_SECS", required: false, default: "10",                                 desc: "Metric collection interval in seconds" },
+  { name: "CupraFlow_LOG_LEVEL",     required: false, default: "info",                               desc: "Log verbosity: trace, debug, info, warn, error" },
+  { name: "CupraFlow_BUFFER_PATH",   required: false, default: "/var/lib/CupraFlow/buffer",           desc: "Local offline buffer directory" },
+  { name: "CupraFlow_BUFFER_MAX_MB", required: false, default: "100",                               desc: "Max offline buffer size in MB" },
 ];
 
 export default function ConfigurationPage() {
@@ -22,7 +22,7 @@ export default function ConfigurationPage() {
     <Prose>
       <h1>Configuration</h1>
       <p>
-        OxiPulse reads configuration from environment variables or a{" "}
+        CupraFlow reads configuration from environment variables or a{" "}
         <code>config.toml</code> file. Environment variables always take priority over the
         config file.
       </p>
@@ -63,25 +63,25 @@ export default function ConfigurationPage() {
         Alternatively, place a <code>config.toml</code> file at one of the following locations:
       </p>
       <ul>
-        <li><code>/etc/oxipulse/config.toml</code> (Linux, system-wide)</li>
-        <li><code>~/.config/oxipulse/config.toml</code> (Linux, user-level)</li>
-        <li><code>C:\ProgramData\OxiPulse\config.toml</code> (Windows)</li>
+        <li><code>/etc/CupraFlow/config.toml</code> (Linux, system-wide)</li>
+        <li><code>~/.config/CupraFlow/config.toml</code> (Linux, user-level)</li>
+        <li><code>C:\ProgramData\CupraFlow\config.toml</code> (Windows)</li>
       </ul>
 
       <CodeBlock
         code={`# config.toml
 token          = "op_live_xxxxxxxxxxxx"
-endpoint       = "https://ingest.oxipulse.dev"
+endpoint       = "https://ingest.CupraFlow.dev"
 interval_secs  = 10
 log_level      = "info"
-buffer_path    = "/var/lib/oxipulse/buffer"
+buffer_path    = "/var/lib/CupraFlow/buffer"
 buffer_max_mb  = 100`}
         language="toml"
         filename="config.toml"
       />
 
       <Callout variant="warning">
-        Never commit <code>config.toml</code> to version control — it contains your auth token.
+        Never commit <code>config.toml</code> to version control â€” it contains your auth token.
         The installer&apos;s default <code>.gitignore</code> excludes it, but double-check before
         pushing to a public repository.
       </Callout>
@@ -100,16 +100,16 @@ buffer_max_mb  = 100`}
       </p>
       <CodeBlock
         code={`# Create override directory
-mkdir -p /etc/systemd/system/oxipulse.service.d
+mkdir -p /etc/systemd/system/CupraFlow.service.d
 
 # Create override file
-cat > /etc/systemd/system/oxipulse.service.d/override.conf << EOF
+cat > /etc/systemd/system/CupraFlow.service.d/override.conf << EOF
 [Service]
-Environment="OXIPULSE_LOG_LEVEL=debug"
-Environment="OXIPULSE_INTERVAL_SECS=5"
+Environment="CupraFlow_LOG_LEVEL=debug"
+Environment="CupraFlow_INTERVAL_SECS=5"
 EOF
 
-systemctl daemon-reload && systemctl restart oxipulse`}
+systemctl daemon-reload && systemctl restart CupraFlow`}
         language="bash"
         filename="systemd override"
       />

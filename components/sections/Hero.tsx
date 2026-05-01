@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { ArrowRight, Github, Activity } from "lucide-react";
@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/Badge";
 import { CodeBlock } from "@/components/ui/CodeBlock";
 import { PulseAnimation } from "./PulseAnimation";
 
-const INSTALL_CMD = `curl -fsSL https://install.oxipulse.dev | sudo bash`;
+const INSTALL_CMD = `curl -fsSL https://install.CupraFlow.dev | sudo bash`;
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -49,7 +49,7 @@ export function Hero() {
         <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={0} className="flex flex-col items-center gap-2">
           <Badge variant="primary" dot>
             <Activity size={11} />
-            Open Source · Apache 2.0
+            Open Source Â· Apache 2.0
           </Badge>
           <a
             href="https://securyblack.com"
@@ -83,7 +83,7 @@ export function Hero() {
           custom={0.2}
           className="max-w-2xl text-lg sm:text-xl text-[var(--color-muted)] leading-relaxed"
         >
-          OxiPulse is an ultralight telemetry agent written in{" "}
+          CupraFlow is an ultralight telemetry agent written in{" "}
           <span className="text-[var(--color-text)]">Rust</span>. Monitor CPU, RAM,
           disk and network with{" "}
           <span className="text-[var(--color-text)]">near-zero resource usage</span>{" "}
@@ -103,7 +103,7 @@ export function Hero() {
             <ArrowRight size={16} />
           </Button>
           <Button
-            href="https://github.com/securyblack/oxi-pulse"
+            href="https://github.com/sb-mcampoe/cupraflow"
             variant="outline"
             size="lg"
             external

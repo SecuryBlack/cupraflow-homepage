@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Github, Bug, GitPullRequest, Star, FileText } from "lucide-react";
 import { Layout } from "@/components/layout";
 import { Card } from "@/components/ui/Card";
@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
   title: "Community",
-  description: "Join the OxiPulse open-source community on GitHub.",
+  description: "Join the CupraFlow open-source community on GitHub.",
 };
 
 const links = [
@@ -14,14 +14,14 @@ const links = [
     icon: Github,
     title: "Source code",
     description: "Browse the full agent source. Fork it, audit it, build on it.",
-    href: "https://github.com/securyblack/oxi-pulse",
+    href: "https://github.com/sb-mcampoe/cupraflow",
     cta: "View on GitHub",
   },
   {
     icon: Bug,
     title: "Report a bug",
     description: "Found something wrong? Open an issue and we'll investigate.",
-    href: "https://github.com/securyblack/oxi-pulse/issues/new?template=bug_report.md",
+    href: "https://github.com/sb-mcampoe/cupraflow/issues/new?template=bug_report.md",
     cta: "Open issue",
   },
   {
@@ -34,15 +34,15 @@ const links = [
   {
     icon: Star,
     title: "Star the repo",
-    description: "Help other developers discover OxiPulse.",
-    href: "https://github.com/securyblack/oxi-pulse",
+    description: "Help other developers discover CupraFlow.",
+    href: "https://github.com/sb-mcampoe/cupraflow",
     cta: "Star on GitHub",
   },
   {
     icon: FileText,
     title: "License",
-    description: "Apache 2.0 — free to use, modify, and distribute commercially.",
-    href: "https://github.com/securyblack/oxi-pulse/blob/main/LICENSE",
+    description: "Apache 2.0 â€” free to use, modify, and distribute commercially.",
+    href: "https://github.com/sb-mcampoe/cupraflow/blob/main/LICENSE",
     cta: "Read license",
   },
 ];
@@ -57,12 +57,12 @@ export default function CommunityPage() {
             Community
           </h1>
           <p className="text-lg text-[var(--color-muted)] max-w-xl mx-auto">
-            OxiPulse is built in the open. Everything happens on GitHub — issues, pull requests,
+            CupraFlow is built in the open. Everything happens on GitHub â€” issues, pull requests,
             discussions, releases.
           </p>
           <div className="flex flex-wrap justify-center gap-3 mt-8">
             <Button
-              href="https://github.com/securyblack/oxi-pulse"
+              href="https://github.com/sb-mcampoe/cupraflow"
               variant="primary"
               size="md"
               external
@@ -104,7 +104,7 @@ export default function CommunityPage() {
         {/* SecuryBlack note */}
         <div className="text-center border-t border-[var(--color-border)] pt-12">
           <p className="text-sm text-[var(--color-muted)] max-w-lg mx-auto">
-            OxiPulse is an independent open-source project maintained by{" "}
+            CupraFlow is an independent open-source project maintained by{" "}
             <a
               href="https://securyblack.com"
               target="_blank"

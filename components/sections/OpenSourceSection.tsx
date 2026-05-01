@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { Github, GitFork, Star, FileText } from "lucide-react";
@@ -10,7 +10,7 @@ const highlights = [
     icon: FileText,
     title: "Apache 2.0",
     description:
-      "Permissive license. Use it in commercial projects, modify it, distribute it — no strings attached.",
+      "Permissive license. Use it in commercial projects, modify it, distribute it â€” no strings attached.",
   },
   {
     icon: GitFork,
@@ -31,7 +31,7 @@ export function OpenSourceSection() {
     <section className="py-16 md:py-24 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          {/* Left — text */}
+          {/* Left â€” text */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -47,13 +47,13 @@ export function OpenSourceSection() {
               owned by the community.
             </h2>
             <p className="text-[var(--color-muted)] leading-relaxed mb-8">
-              OxiPulse is an independent open-source project maintained by SecuryBlack. The agent
+              CupraFlow is an independent open-source project maintained by SecuryBlack. The agent
               source is fully public, auditable, and free to extend. We believe monitoring
               infrastructure should be transparent.
             </p>
             <div className="flex flex-wrap gap-3">
               <Button
-                href="https://github.com/securyblack/oxi-pulse"
+                href="https://github.com/sb-mcampoe/cupraflow"
                 variant="primary"
                 size="md"
                 external
@@ -62,7 +62,7 @@ export function OpenSourceSection() {
                 View source on GitHub
               </Button>
               <Button
-                href="https://github.com/securyblack/oxi-pulse/blob/main/LICENSE"
+                href="https://github.com/sb-mcampoe/cupraflow/blob/main/LICENSE"
                 variant="outline"
                 size="md"
                 external
@@ -73,7 +73,7 @@ export function OpenSourceSection() {
             </div>
           </motion.div>
 
-          {/* Right — cards */}
+          {/* Right â€” cards */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}

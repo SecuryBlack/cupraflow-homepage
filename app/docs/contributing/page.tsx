@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Prose } from "@/components/ui/Prose";
 import { CodeBlock } from "@/components/ui/CodeBlock";
 import { Callout } from "@/components/ui/Callout";
 
 export const metadata: Metadata = {
   title: "Contributing",
-  description: "How to contribute to the OxiPulse open-source project.",
+  description: "How to contribute to the CupraFlow open-source project.",
 };
 
 export default function ContributingPage() {
@@ -13,7 +13,7 @@ export default function ContributingPage() {
     <Prose>
       <h1>Contributing</h1>
       <p>
-        OxiPulse is an open-source project and contributions are welcome. This guide explains how
+        CupraFlow is an open-source project and contributions are welcome. This guide explains how
         to set up a local development environment, run the agent, and submit a pull request.
       </p>
 
@@ -30,14 +30,14 @@ export default function ContributingPage() {
       <h2>Local setup</h2>
       <CodeBlock
         code={`# Clone the repo
-git clone https://github.com/securyblack/oxi-pulse.git
+git clone https://github.com/sb-mcampoe/cupraflow.git
 cd oxi-pulse
 
 # Build in debug mode
 cargo build
 
 # Run the agent locally (set a dummy endpoint for testing)
-OXIPULSE_ENDPOINT=http://localhost:4317 OXIPULSE_TOKEN=test cargo run`}
+CupraFlow_ENDPOINT=http://localhost:4317 CupraFlow_TOKEN=test cargo run`}
         language="bash"
         filename="Getting started"
       />
@@ -45,11 +45,11 @@ OXIPULSE_ENDPOINT=http://localhost:4317 OXIPULSE_TOKEN=test cargo run`}
       <h2>Project structure</h2>
       <CodeBlock
         code={`src/
-├── main.rs          # Entry point, service loop
-├── config/          # Config loading (env vars + TOML)
-├── metrics/         # Metric collectors (cpu, ram, disk, net)
-├── telemetry/       # OTLP export via gRPC
-└── updater/         # Auto-update logic`}
+â”œâ”€â”€ main.rs          # Entry point, service loop
+â”œâ”€â”€ config/          # Config loading (env vars + TOML)
+â”œâ”€â”€ metrics/         # Metric collectors (cpu, ram, disk, net)
+â”œâ”€â”€ telemetry/       # OTLP export via gRPC
+â””â”€â”€ updater/         # Auto-update logic`}
         language="bash"
         filename="Source tree"
         showCopy={false}

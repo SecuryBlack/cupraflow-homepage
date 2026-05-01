@@ -38,7 +38,7 @@ export function PulseAnimation({ className = "" }: { className?: string }) {
         {/* ECG spike */}
         <path
           d="M 100,40 L 130,40 L 145,10 L 160,70 L 175,40 L 200,40 L 215,22 L 230,58 L 245,40 L 270,40 L 280,20 L 290,60 L 300,40 L 300,40"
-          stroke="#3B82F6"
+          stroke="#B87333"
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -54,8 +54,8 @@ export function PulseAnimation({ className = "" }: { className?: string }) {
         />
 
         {/* live dot */}
-        <circle cx="300" cy="40" r="4" fill="#3B82F6" filter="url(#glow)" className="pulse-dot" />
-        <circle cx="300" cy="40" r="8" fill="#3B82F6" fillOpacity="0.2" className="pulse-ring" />
+        <circle cx="300" cy="40" r="4" fill="#B87333" filter="url(#glow)" className="pulse-dot" />
+        <circle cx="300" cy="40" r="8" fill="#B87333" fillOpacity="0.2" className="pulse-ring" />
       </svg>
 
       <style>{`

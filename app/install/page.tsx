@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Terminal, MonitorDown, CheckCircle, ArrowRight } from "lucide-react";
 import { Layout } from "@/components/layout";
 import { Badge } from "@/components/ui/Badge";
@@ -11,16 +11,16 @@ import { Button } from "@/components/ui/Button";
 export const metadata: Metadata = {
   title: "Install",
   description:
-    "Install OxiPulse on any Linux, macOS or Windows server in under 60 seconds with a single command.",
+    "Install CupraFlow on any Linux, macOS or Windows server in under 60 seconds with a single command.",
 };
 
 const platforms = [
-  { os: "Linux", arch: "x86_64 (amd64)", status: "stable", binary: "oxipulse-linux-x86_64" },
-  { os: "Linux", arch: "ARM64 (aarch64)", status: "stable", binary: "oxipulse-linux-arm64" },
-  { os: "Windows", arch: "x86_64", status: "stable", binary: "oxipulse-windows-x86_64.exe" },
-  { os: "Windows", arch: "ARM64", status: "beta", binary: "oxipulse-windows-arm64.exe" },
-  { os: "macOS", arch: "x86_64", status: "coming-soon", binary: "—" },
-  { os: "macOS", arch: "ARM64 (Apple Silicon)", status: "coming-soon", binary: "—" },
+  { os: "Linux", arch: "x86_64 (amd64)", status: "stable", binary: "CupraFlow-linux-x86_64" },
+  { os: "Linux", arch: "ARM64 (aarch64)", status: "stable", binary: "CupraFlow-linux-arm64" },
+  { os: "Windows", arch: "x86_64", status: "stable", binary: "CupraFlow-windows-x86_64.exe" },
+  { os: "Windows", arch: "ARM64", status: "beta", binary: "CupraFlow-windows-arm64.exe" },
+  { os: "macOS", arch: "x86_64", status: "coming-soon", binary: "â€”" },
+  { os: "macOS", arch: "ARM64 (Apple Silicon)", status: "coming-soon", binary: "â€”" },
 ];
 
 const statusBadge = (s: string) => {
@@ -39,7 +39,7 @@ const linuxSteps = [
           and sets up a systemd service.
         </p>
         <CodeBlock
-          code={`curl -fsSL https://install.oxipulse.dev | sudo bash`}
+          code={`curl -fsSL https://install.CupraFlow.dev | sudo bash`}
           language="bash"
           filename="Terminal"
         />
@@ -51,16 +51,16 @@ const linuxSteps = [
     children: (
       <>
         <p className="text-sm text-[var(--color-muted)]">
-          Get your token from the OxiPulse dashboard. You can also pass it via environment variable
+          Get your token from the CupraFlow dashboard. You can also pass it via environment variable
           to skip the prompt.
         </p>
         <CodeBlock
-          code={`Enter your OxiPulse token: op_live_xxxxxxxxxxxx`}
+          code={`Enter your CupraFlow token: op_live_xxxxxxxxxxxx`}
           language="bash"
           filename="Token setup"
         />
         <Callout variant="info">
-          Your token authenticates the agent against the OTLP ingestor. Keep it secret — treat it
+          Your token authenticates the agent against the OTLP ingestor. Keep it secret â€” treat it
           like a password. Rotate it from the dashboard if compromised.
         </Callout>
       </>
@@ -72,20 +72,20 @@ const linuxSteps = [
       <>
         <CodeBlock
           code={`# Check the service status
-systemctl status oxipulse
+systemctl status CupraFlow
 
 # Verify it's sending data
-journalctl -u oxipulse -f`}
+journalctl -u CupraFlow -f`}
           language="bash"
           filename="Verify"
         />
         <CodeBlock
-          code={`● oxipulse.service - OxiPulse Telemetry Agent
-     Loaded: loaded (/etc/systemd/system/oxipulse.service; enabled)
+          code={`â— CupraFlow.service - CupraFlow Telemetry Agent
+     Loaded: loaded (/etc/systemd/system/CupraFlow.service; enabled)
      Active: active (running) since Mon 2025-01-01 12:00:00 UTC
-   Main PID: 1234 (oxipulse)
+   Main PID: 1234 (CupraFlow)
 
-Jan 01 12:00:01 myserver oxipulse[1234]: INFO oxipulse: agent started, sending metrics every 10s`}
+Jan 01 12:00:01 myserver CupraFlow[1234]: INFO CupraFlow: agent started, sending metrics every 10s`}
           language="bash"
           filename="Expected output"
           showCopy={false}
@@ -105,12 +105,12 @@ const windowsSteps = [
           registers a native Windows Service.
         </p>
         <CodeBlock
-          code={`irm https://install.oxipulse.dev/windows | iex`}
+          code={`irm https://install.CupraFlow.dev/windows | iex`}
           language="powershell"
           filename="PowerShell (Admin)"
         />
         <Callout variant="warning">
-          Must be run as Administrator to register the Windows Service. Right-click PowerShell →
+          Must be run as Administrator to register the Windows Service. Right-click PowerShell â†’
           "Run as administrator".
         </Callout>
       </>
@@ -121,7 +121,7 @@ const windowsSteps = [
     children: (
       <>
         <CodeBlock
-          code={`Enter your OxiPulse token: op_live_xxxxxxxxxxxx`}
+          code={`Enter your CupraFlow token: op_live_xxxxxxxxxxxx`}
           language="powershell"
           filename="Token setup"
         />
@@ -134,17 +134,17 @@ const windowsSteps = [
       <>
         <CodeBlock
           code={`# Check service status
-Get-Service -Name OxiPulse
+Get-Service -Name CupraFlow
 
 # View logs
-Get-EventLog -LogName Application -Source OxiPulse -Newest 20`}
+Get-EventLog -LogName Application -Source CupraFlow -Newest 20`}
           language="powershell"
           filename="Verify"
         />
         <CodeBlock
           code={`Status   Name          DisplayName
 -------  ----          -----------
-Running  OxiPulse      OxiPulse Telemetry Agent`}
+Running  CupraFlow      CupraFlow Telemetry Agent`}
           language="powershell"
           filename="Expected output"
           showCopy={false}
@@ -162,7 +162,7 @@ export default function InstallPage() {
         <div className="mb-12">
           <Badge variant="primary" className="mb-4">v0.1.0</Badge>
           <h1 className="text-4xl sm:text-5xl font-bold text-[var(--color-text)] mb-4">
-            Install OxiPulse
+            Install CupraFlow
           </h1>
           <p className="text-lg text-[var(--color-muted)] max-w-2xl">
             A single command installs the agent, injects your auth token, and registers it as a
@@ -217,19 +217,19 @@ export default function InstallPage() {
             <TabsContent value="linux-mgmt">
               <CodeBlock
                 code={`# Start
-systemctl start oxipulse
+systemctl start CupraFlow
 
 # Stop
-systemctl stop oxipulse
+systemctl stop CupraFlow
 
 # Restart
-systemctl restart oxipulse
+systemctl restart CupraFlow
 
 # Enable on boot (already done by installer)
-systemctl enable oxipulse
+systemctl enable CupraFlow
 
 # Live logs
-journalctl -u oxipulse -f`}
+journalctl -u CupraFlow -f`}
                 language="bash"
                 filename="systemd"
               />
@@ -237,19 +237,19 @@ journalctl -u oxipulse -f`}
             <TabsContent value="windows-mgmt">
               <CodeBlock
                 code={`# Start
-Start-Service -Name OxiPulse
+Start-Service -Name CupraFlow
 
 # Stop
-Stop-Service -Name OxiPulse
+Stop-Service -Name CupraFlow
 
 # Restart
-Restart-Service -Name OxiPulse
+Restart-Service -Name CupraFlow
 
 # Check status
-Get-Service -Name OxiPulse
+Get-Service -Name CupraFlow
 
 # View logs (Event Viewer)
-Get-EventLog -LogName Application -Source OxiPulse -Newest 50`}
+Get-EventLog -LogName Application -Source CupraFlow -Newest 50`}
                 language="powershell"
                 filename="PowerShell"
               />
@@ -261,7 +261,7 @@ Get-EventLog -LogName Application -Source OxiPulse -Newest 50`}
         <section className="mb-16">
           <h2 className="text-xl font-semibold text-[var(--color-text)] mb-2">Configuration</h2>
           <p className="text-sm text-[var(--color-muted)] mb-6">
-            OxiPulse reads configuration from environment variables or a config file.
+            CupraFlow reads configuration from environment variables or a config file.
             Environment variables always take priority.
           </p>
 
@@ -276,11 +276,11 @@ Get-EventLog -LogName Application -Source OxiPulse -Newest 50`}
               </thead>
               <tbody>
                 {[
-                  ["OXIPULSE_TOKEN", "—", "Auth token (required)"],
-                  ["OXIPULSE_ENDPOINT", "https://ingest.oxipulse.dev", "OTLP gRPC endpoint"],
-                  ["OXIPULSE_INTERVAL_SECS", "10", "Metrics collection interval"],
-                  ["OXIPULSE_LOG_LEVEL", "info", "Log verbosity (trace, debug, info, warn, error)"],
-                  ["OXIPULSE_BUFFER_PATH", "/var/lib/oxipulse/buffer", "Offline buffer location"],
+                  ["CupraFlow_TOKEN", "â€”", "Auth token (required)"],
+                  ["CupraFlow_ENDPOINT", "https://ingest.CupraFlow.dev", "OTLP gRPC endpoint"],
+                  ["CupraFlow_INTERVAL_SECS", "10", "Metrics collection interval"],
+                  ["CupraFlow_LOG_LEVEL", "info", "Log verbosity (trace, debug, info, warn, error)"],
+                  ["CupraFlow_BUFFER_PATH", "/var/lib/CupraFlow/buffer", "Offline buffer location"],
                 ].map(([name, def, desc]) => (
                   <tr key={name} className="border-b border-[var(--color-border)] last:border-0">
                     <td className="px-4 py-3 font-mono text-[var(--color-primary)] text-xs">{name}</td>
@@ -293,9 +293,9 @@ Get-EventLog -LogName Application -Source OxiPulse -Newest 50`}
           </div>
 
           <CodeBlock
-            code={`# /etc/oxipulse/config.toml (Linux)
+            code={`# /etc/CupraFlow/config.toml (Linux)
 token          = "op_live_xxxxxxxxxxxx"
-endpoint       = "https://ingest.oxipulse.dev"
+endpoint       = "https://ingest.CupraFlow.dev"
 interval_secs  = 10
 log_level      = "info"`}
             language="toml"
@@ -353,19 +353,19 @@ log_level      = "info"`}
             </TabsList>
             <TabsContent value="linux-rm">
               <CodeBlock
-                code={`systemctl stop oxipulse && systemctl disable oxipulse
-rm -f /usr/local/bin/oxipulse
-rm -f /etc/systemd/system/oxipulse.service
-rm -rf /etc/oxipulse /var/lib/oxipulse
+                code={`systemctl stop CupraFlow && systemctl disable CupraFlow
+rm -f /usr/local/bin/CupraFlow
+rm -f /etc/systemd/system/CupraFlow.service
+rm -rf /etc/CupraFlow /var/lib/CupraFlow
 systemctl daemon-reload`}
                 language="bash"
               />
             </TabsContent>
             <TabsContent value="windows-rm">
               <CodeBlock
-                code={`Stop-Service -Name OxiPulse
-sc.exe delete OxiPulse
-Remove-Item -Recurse -Force "C:\Program Files\OxiPulse"`}
+                code={`Stop-Service -Name CupraFlow
+sc.exe delete CupraFlow
+Remove-Item -Recurse -Force "C:\Program Files\CupraFlow"`}
                 language="powershell"
               />
             </TabsContent>
@@ -390,7 +390,7 @@ Remove-Item -Recurse -Force "C:\Program Files\OxiPulse"`}
               {
                 title: "Contributing",
                 description: "Open an issue or submit a PR on GitHub.",
-                href: "https://github.com/securyblack/oxi-pulse",
+                href: "https://github.com/sb-mcampoe/cupraflow",
               },
               {
                 title: "Changelog",

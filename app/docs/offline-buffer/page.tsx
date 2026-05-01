@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Prose } from "@/components/ui/Prose";
 import { CodeBlock } from "@/components/ui/CodeBlock";
 import { Callout } from "@/components/ui/Callout";
 
 export const metadata: Metadata = {
   title: "Offline Buffer",
-  description: "How OxiPulse handles connectivity loss without dropping metrics.",
+  description: "How CupraFlow handles connectivity loss without dropping metrics.",
 };
 
 export default function OfflineBufferPage() {
@@ -13,7 +13,7 @@ export default function OfflineBufferPage() {
     <Prose>
       <h1>Offline buffer</h1>
       <p>
-        OxiPulse is designed to never lose metrics due to temporary network failures. When the
+        CupraFlow is designed to never lose metrics due to temporary network failures. When the
         OTLP endpoint is unreachable, the agent automatically switches to a local disk buffer
         and replays accumulated data once connectivity is restored.
       </p>
@@ -33,7 +33,7 @@ export default function OfflineBufferPage() {
           resuming normal operation.
         </li>
         <li>
-          If the buffer reaches the configured maximum size (<code>OXIPULSE_BUFFER_MAX_MB</code>,
+          If the buffer reaches the configured maximum size (<code>CupraFlow_BUFFER_MAX_MB</code>,
           default 100 MB), the oldest batches are dropped to make room for new ones.
         </li>
       </ol>
@@ -46,21 +46,21 @@ export default function OfflineBufferPage() {
       <h2>Buffer location</h2>
       <p>Default locations by platform:</p>
       <ul>
-        <li>Linux: <code>/var/lib/oxipulse/buffer/</code></li>
-        <li>Windows: <code>C:\ProgramData\OxiPulse\buffer\</code></li>
+        <li>Linux: <code>/var/lib/CupraFlow/buffer/</code></li>
+        <li>Windows: <code>C:\ProgramData\CupraFlow\buffer\</code></li>
       </ul>
-      <p>Override with the <code>OXIPULSE_BUFFER_PATH</code> environment variable:</p>
+      <p>Override with the <code>CupraFlow_BUFFER_PATH</code> environment variable:</p>
       <CodeBlock
-        code={`OXIPULSE_BUFFER_PATH=/data/oxipulse/buffer`}
+        code={`CupraFlow_BUFFER_PATH=/data/CupraFlow/buffer`}
         language="bash"
       />
 
       <h2>Monitoring buffer state</h2>
       <p>The agent logs buffer activity at <code>info</code> level:</p>
       <CodeBlock
-        code={`INFO oxipulse: endpoint unreachable, buffering metrics (buffer: 12 MB / 100 MB)
-INFO oxipulse: connection restored, replaying 47 buffered batches
-INFO oxipulse: buffer drained, resuming normal operation`}
+        code={`INFO CupraFlow: endpoint unreachable, buffering metrics (buffer: 12 MB / 100 MB)
+INFO CupraFlow: connection restored, replaying 47 buffered batches
+INFO CupraFlow: buffer drained, resuming normal operation`}
         language="bash"
         filename="Log output"
         showCopy={false}
@@ -68,8 +68,8 @@ INFO oxipulse: buffer drained, resuming normal operation`}
 
       <h2>Disk space considerations</h2>
       <p>
-        At the default 10-second interval, one batch is approximately <strong>1–3 KB</strong>.
-        The default 100 MB buffer can hold roughly <strong>8–24 hours</strong> of metrics before
+        At the default 10-second interval, one batch is approximately <strong>1â€“3 KB</strong>.
+        The default 100 MB buffer can hold roughly <strong>8â€“24 hours</strong> of metrics before
         the oldest data starts being dropped.
       </p>
 

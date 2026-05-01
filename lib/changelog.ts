@@ -1,4 +1,4 @@
-export type ReleaseType = "major" | "minor" | "patch";
+﻿export type ReleaseType = "major" | "minor" | "patch";
 
 export interface ChangelogEntry {
   version: string;
@@ -35,10 +35,10 @@ export const changelog: ChangelogEntry[] = [
       {
         label: "Added",
         items: [
-          "Opt-in usage telemetry — the agent can now send anonymous usage pings (version, OS, arch, uptime, metrics exported, buffer occupancy) to SecuryBlack once every 24 hours. Disabled by default for all installations, including agents upgrading from previous versions.",
-          "Remote configuration fetch — on startup the agent calls the SecuryBlack API with its token to retrieve server-side settings. This allows telemetry to be enabled or disabled per agent from the dashboard without touching the local config file.",
-          "New config key `telemetry_enabled` (absent → defers to server, `true` → always on, `false` → always off) and corresponding `OXIPULSE_TELEMETRY` environment variable override.",
-          "New optional config key `api_url` and `OXIPULSE_API_URL` environment variable for self-hosted or staging deployments.",
+          "Opt-in usage telemetry â€” the agent can now send anonymous usage pings (version, OS, arch, uptime, metrics exported, buffer occupancy) to SecuryBlack once every 24 hours. Disabled by default for all installations, including agents upgrading from previous versions.",
+          "Remote configuration fetch â€” on startup the agent calls the SecuryBlack API with its token to retrieve server-side settings. This allows telemetry to be enabled or disabled per agent from the dashboard without touching the local config file.",
+          "New config key `telemetry_enabled` (absent â†’ defers to server, `true` â†’ always on, `false` â†’ always off) and corresponding `CupraFlow_TELEMETRY` environment variable override.",
+          "New optional config key `api_url` and `CupraFlow_API_URL` environment variable for self-hosted or staging deployments.",
         ],
       },
     ],
@@ -52,7 +52,7 @@ export const changelog: ChangelogEntry[] = [
       {
         label: "Added",
         items: [
-          "Agent version is now attached as the `service.version` resource attribute in every OTLP export, allowing the ingestor to track which version of OxiPulse each agent is running.",
+          "Agent version is now attached as the `service.version` resource attribute in every OTLP export, allowing the ingestor to track which version of CupraFlow each agent is running.",
         ],
       },
       {
@@ -87,7 +87,7 @@ export const changelog: ChangelogEntry[] = [
         label: "Fixed",
         items: [
           "Reachability check now tries IPv4 addresses before IPv6, preventing long stalls when the ingestor host has no IPv6 listener.",
-          "Linux install script reads TTY input via `/dev/tty` so the installer works correctly when executed through a pipe (`curl … | bash`).",
+          "Linux install script reads TTY input via `/dev/tty` so the installer works correctly when executed through a pipe (`curl â€¦ | bash`).",
           "Windows install script uses the `PROCESSOR_ARCHITECTURE` environment variable for architecture detection instead of .NET `RuntimeInformation`, improving compatibility across environments.",
         ],
       },
@@ -152,7 +152,7 @@ export const changelog: ChangelogEntry[] = [
         label: "Fixed",
         items: [
           "Log output is now written to disk when the agent runs as a Windows Service (previously only visible in interactive mode).",
-          "Offline reconnection logic corrected — agent resumes sending buffered metrics as soon as the ingestor becomes reachable again.",
+          "Offline reconnection logic corrected â€” agent resumes sending buffered metrics as soon as the ingestor becomes reachable again.",
         ],
       },
     ],
@@ -166,7 +166,7 @@ export const changelog: ChangelogEntry[] = [
       {
         label: "Added",
         items: [
-          "Native Windows Service Manager integration — the agent can now be installed, started, stopped and uninstalled as a proper Windows Service via the PowerShell installer.",
+          "Native Windows Service Manager integration â€” the agent can now be installed, started, stopped and uninstalled as a proper Windows Service via the PowerShell installer.",
         ],
       },
       {
@@ -188,8 +188,8 @@ export const changelog: ChangelogEntry[] = [
         items: [
           "CPU, RAM, disk and network metric collection via native OS APIs",
           "OTLP/gRPC export with configurable endpoint and interval",
-          "Offline buffer — metrics persisted to disk when collector is unreachable",
-          "Auto-update — daily check against GitHub Releases with SHA256 verification",
+          "Offline buffer â€” metrics persisted to disk when collector is unreachable",
+          "Auto-update â€” daily check against GitHub Releases with SHA256 verification",
           "One-line install script for Linux (curl | bash) with systemd service registration",
           "One-line install script for Windows (irm | iex) with Windows Service registration",
           "Support for x86_64 and ARM64 on Linux; x86_64 on Windows",

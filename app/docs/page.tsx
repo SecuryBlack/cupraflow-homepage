@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Prose } from "@/components/ui/Prose";
@@ -6,7 +6,7 @@ import { Callout } from "@/components/ui/Callout";
 
 export const metadata: Metadata = {
   title: "Introduction",
-  description: "What is OxiPulse and how does it work.",
+  description: "What is CupraFlow and how does it work.",
 };
 
 export default function DocsIntroduction() {
@@ -14,21 +14,21 @@ export default function DocsIntroduction() {
     <Prose>
       <h1>Introduction</h1>
       <p>
-        OxiPulse is an <strong>ultralight, open-source telemetry agent</strong> written in Rust.
-        It runs as a background service on your servers and streams vital metrics — CPU, RAM, disk,
-        and network — to any OpenTelemetry-compatible collector via gRPC.
+        CupraFlow is an <strong>ultralight, open-source telemetry agent</strong> written in Rust.
+        It runs as a background service on your servers and streams vital metrics â€” CPU, RAM, disk,
+        and network â€” to any OpenTelemetry-compatible collector via gRPC.
       </p>
 
       <Callout variant="success">
-        OxiPulse is free and open source under the{" "}
-        <a href="https://github.com/securyblack/oxi-pulse/blob/main/LICENSE">Apache 2.0 license</a>.
+        CupraFlow is free and open source under the{" "}
+        <a href="https://github.com/sb-mcampoe/cupraflow/blob/main/LICENSE">Apache 2.0 license</a>.
         The agent source is fully auditable and requires no SecuryBlack infrastructure.
       </Callout>
 
-      <h2>Why OxiPulse?</h2>
+      <h2>Why CupraFlow?</h2>
       <p>
         Traditional monitoring agents are heavy. They consume CPU, eat RAM, and often require
-        language runtimes. OxiPulse is compiled to a small static binary (~2 MB) with{" "}
+        language runtimes. CupraFlow is compiled to a small static binary (~2 MB) with{" "}
         <strong>less than 0.1% CPU overhead</strong>. It runs silently without affecting the
         workloads you&apos;re trying to monitor.
       </p>
@@ -42,29 +42,29 @@ export default function DocsIntroduction() {
       </p>
 
       <h2>Architecture</h2>
-      <p>OxiPulse is composed of a single binary that handles:</p>
+      <p>CupraFlow is composed of a single binary that handles:</p>
       <ul>
         <li>
-          <strong>Metric collection</strong> — CPU%, RAM (total/used), disk (total/used on{" "}
+          <strong>Metric collection</strong> â€” CPU%, RAM (total/used), disk (total/used on{" "}
           <code>/</code>), network (bytes in/out)
         </li>
         <li>
-          <strong>OTLP export</strong> — batched gRPC transport every 10 seconds
+          <strong>OTLP export</strong> â€” batched gRPC transport every 10 seconds
         </li>
         <li>
-          <strong>Offline buffer</strong> — local disk buffer when the collector is unreachable
+          <strong>Offline buffer</strong> â€” local disk buffer when the collector is unreachable
         </li>
         <li>
-          <strong>Auto-update</strong> — daily check against GitHub Releases
+          <strong>Auto-update</strong> â€” daily check against GitHub Releases
         </li>
       </ul>
 
       <h2>Licensing</h2>
       <p>
         The agent is licensed under{" "}
-        <a href="https://github.com/securyblack/oxi-pulse/blob/main/LICENSE">Apache 2.0</a>. You
+        <a href="https://github.com/sb-mcampoe/cupraflow/blob/main/LICENSE">Apache 2.0</a>. You
         can use it in commercial projects, modify it, and distribute it without restriction. All
-        dependencies are Apache-2.0 or MIT compatible — no GPL, no LGPL.
+        dependencies are Apache-2.0 or MIT compatible â€” no GPL, no LGPL.
       </p>
 
       <h2>Next steps</h2>
@@ -73,7 +73,7 @@ export default function DocsIntroduction() {
           { title: "Quick Start", href: "/docs/quick-start", desc: "Install and start collecting in 5 minutes" },
           { title: "Configuration", href: "/docs/configuration", desc: "Environment variables and config file" },
           { title: "Metrics", href: "/docs/metrics", desc: "What metrics the agent collects" },
-          { title: "Contributing", href: "/docs/contributing", desc: "How to contribute to OxiPulse" },
+          { title: "Contributing", href: "/docs/contributing", desc: "How to contribute to CupraFlow" },
         ].map((item) => (
           <Link
             key={item.href}

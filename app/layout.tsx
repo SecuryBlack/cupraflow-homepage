@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
@@ -15,28 +15,28 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "OxiPulse — Ultralight server monitoring agent",
-    template: "%s | OxiPulse",
+    default: "CupraFlow â€” Ultralight server monitoring agent",
+    template: "%s | CupraFlow",
   },
   description:
     "Open-source telemetry agent written in Rust. Monitor your servers' vital signs with near-zero resource usage.",
   keywords: ["monitoring", "telemetry", "rust", "open-source", "observability", "grpc", "server"],
   authors: [{ name: "SecuryBlack", url: "https://securyblack.com" }],
   creator: "SecuryBlack",
-  metadataBase: new URL("https://oxipulse.dev"),
+  metadataBase: new URL("https://CupraFlow.dev"),
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://oxipulse.dev",
-    siteName: "OxiPulse",
-    title: "OxiPulse — Ultralight server monitoring agent",
+    url: "https://CupraFlow.dev",
+    siteName: "CupraFlow",
+    title: "CupraFlow â€” Ultralight server monitoring agent",
     description:
       "Open-source telemetry agent written in Rust. Monitor your servers' vital signs with near-zero resource usage.",
     images: [{ url: "/og.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "OxiPulse — Ultralight server monitoring agent",
+    title: "CupraFlow â€” Ultralight server monitoring agent",
     description:
       "Open-source telemetry agent written in Rust. Monitor your servers' vital signs with near-zero resource usage.",
     images: ["/og.png"],
