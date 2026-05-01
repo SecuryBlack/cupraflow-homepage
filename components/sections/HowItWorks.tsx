@@ -1,36 +1,7 @@
-﻿"use client";
+"use client";
 
 import { motion } from "framer-motion";
-import { Server, ArrowRight, Cpu, LayoutDashboard } from "lucide-react";
-
-const steps = [
-  {
-    icon: Server,
-    label: "Your server",
-    description: "Any Linux or Windows machine",
-    color: "var(--color-muted)",
-  },
-  {
-    icon: Cpu,
-    label: "CupraFlow agent",
-    description: "Collects metrics every 10s",
-    color: "var(--color-primary)",
-    highlight: true,
-  },
-  {
-    icon: ArrowRight,
-    label: "gRPC / OTLP",
-    description: "Encrypted, efficient transport",
-    color: "var(--color-muted)",
-    connector: true,
-  },
-  {
-    icon: LayoutDashboard,
-    label: "Your dashboard",
-    description: "Any OTLP-compatible backend",
-    color: "var(--color-muted)",
-  },
-];
+import { Globe, ArrowRight, Server, Shield } from "lucide-react";
 
 export function HowItWorks() {
   return (
@@ -45,8 +16,8 @@ export function HowItWorks() {
             How it works
           </h2>
           <p className="mt-4 text-[var(--color-muted)] max-w-xl mx-auto">
-            The agent runs as a system service, collects metrics locally, and streams them
-            to your collector via the OpenTelemetry protocol.
+            CupraFlow sits between your clients and your backend pool. It routes traffic,
+            monitors health, and fails over automatically.
           </p>
         </div>
 
@@ -58,32 +29,32 @@ export function HowItWorks() {
           transition={{ duration: 0.6 }}
           className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0"
         >
-          {/* Server box */}
+          {/* Client */}
           <FlowNode
-            icon={Server}
-            label="Your server"
-            description="Linux / Windows"
+            icon={Globe}
+            label="Client"
+            description="Any request source"
             iconColor="var(--color-muted)"
           />
 
           <Connector />
 
-          {/* Agent box â€” highlighted */}
+          {/* CupraFlow LB — highlighted */}
           <FlowNode
-            icon={Cpu}
-            label="CupraFlow agent"
-            description="Collects every 10s"
+            icon={Shield}
+            label="CupraFlow LB"
+            description="Routes & balances"
             iconColor="var(--color-primary)"
             highlight
           />
 
-          <Connector label="gRPC / OTLP" />
+          <Connector label="health checks" />
 
-          {/* Collector */}
+          {/* Backend pool */}
           <FlowNode
-            icon={LayoutDashboard}
-            label="OTLP collector"
-            description="Any compatible backend"
+            icon={Server}
+            label="Backend pool"
+            description="Your servers"
             iconColor="var(--color-muted)"
           />
         </motion.div>
@@ -99,11 +70,11 @@ export function HowItWorks() {
           {[
             {
               label: "Resilient",
-              detail: "Buffers locally when the collector is unreachable",
+              detail: "Dead backends are removed from the pool automatically within seconds",
             },
             {
               label: "Configurable",
-              detail: "Endpoint set via env var or config file â€” never hardcoded",
+              detail: "Backends, algorithms, and health checks via a single TOML config file",
             },
             {
               label: "Self-updating",

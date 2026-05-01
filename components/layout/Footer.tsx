@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { Activity, Github } from "lucide-react";
 
 const footerLinks = {
@@ -36,7 +36,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-sm text-[var(--color-muted)] leading-relaxed mb-4">
-              Ultralight telemetry agent for your servers. Written in Rust.
+              Load balancer and network management agent for Windows. Written in Rust.
             </p>
             <a
               href="https://github.com/sb-mcampoe/cupraflow"
@@ -45,7 +45,7 @@ export function Footer() {
               className="inline-flex items-center gap-2 text-sm text-[var(--color-muted)] hover:text-[var(--color-primary)] transition-colors"
             >
               <Github size={15} />
-              securyblack/oxi-pulse
+              sb-mcampoe/cupraflow
             </a>
             <div className="mt-5 pt-4 border-t border-[var(--color-border)]">
               <p className="text-xs text-[var(--color-muted)] mb-1">Made by</p>
@@ -55,7 +55,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="text-sm font-semibold text-[var(--color-text)] hover:text-[var(--color-primary)] transition-colors"
               >
-                SecuryBlack â†’
+                SecuryBlack →
               </a>
               <p className="text-xs text-[var(--color-muted)] mt-1 leading-relaxed">
                 Cybersecurity tools for the modern web.
@@ -91,7 +91,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="mt-12 pt-8 border-t border-[var(--color-border)] flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-[var(--color-muted)]">
-            Â© {new Date().getFullYear()} CupraFlow. Licensed under Apache 2.0.
+            © {new Date().getFullYear()} CupraFlow. Licensed under Apache 2.0.
           </p>
           <a
             href="https://securyblack.com"

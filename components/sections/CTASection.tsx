@@ -21,7 +21,7 @@ export function CTASection() {
             className="absolute inset-0 pointer-events-none"
             style={{
               background:
-                "radial-gradient(ellipse 60% 50% at 50% 100%, rgba(51,225,191,0.06) 0%, transparent 100%)",
+                "radial-gradient(ellipse 60% 50% at 50% 100%, rgba(184,115,51,0.06) 0%, transparent 100%)",
             }}
           />
 
@@ -29,11 +29,11 @@ export function CTASection() {
             <PulseAnimation className="mb-8 max-w-xs mx-auto opacity-60" />
 
             <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-text)] mb-4">
-              Start monitoring in{" "}
+              Deploy your load balancer in{" "}
               <span className="text-gradient-primary">60 seconds</span>
             </h2>
             <p className="text-[var(--color-muted)] mb-8 max-w-lg mx-auto">
-              One command. Any Linux or Windows server. Near-zero impact on your workloads.
+              One PowerShell command. Any Windows server. Native service with zero dependencies.
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-3">
@@ -42,7 +42,7 @@ export function CTASection() {
                 <ArrowRight size={16} />
               </Button>
               <Button
-                href="https://github.com/securyblack/oxi-pulse"
+                href="https://github.com/sb-mcampoe/cupraflow"
                 variant="ghost"
                 size="lg"
                 external

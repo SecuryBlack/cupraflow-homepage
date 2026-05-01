@@ -1,52 +1,52 @@
-﻿"use client";
+"use client";
 
 import { motion } from "framer-motion";
 import {
-  Zap,
-  Wifi,
+  Server,
+  Route,
+  ShieldCheck,
   RefreshCw,
-  Shield,
   Terminal,
-  BarChart3,
+  Activity,
 } from "lucide-react";
 import { Card } from "@/components/ui/Card";
 
 const features = [
   {
-    icon: Zap,
-    title: "Ultralight by design",
+    icon: Server,
+    title: "Native Windows Service",
     description:
-      "~2 MB static binary, <0.1% CPU overhead. Runs silently in the background without impacting your workloads.",
+      "Installs as a first-class Windows Service with auto-start, restart-on-failure, and clean uninstall. No wrappers or hacks.",
   },
   {
-    icon: Wifi,
-    title: "gRPC / OpenTelemetry",
+    icon: Route,
+    title: "L4 & L7 Load Balancer",
     description:
-      "Ships metrics via OTLP over gRPC every 10 seconds. Compatible with any OTLP-capable backend â€” no vendor lock-in.",
+      "TCP/UDP proxy with round-robin, least-connections, and IP-hash algorithms. HTTP/HTTPS routing by host, path, and headers.",
   },
   {
-    icon: Shield,
-    title: "Offline resilience",
+    icon: ShieldCheck,
+    title: "High Availability",
     description:
-      "If the collector goes down, the agent buffers data locally and replays it automatically when the connection recovers.",
+      "VRRP-style failover with floating virtual IP. Automatic master/slave detection and VIP migration in under 5 seconds.",
   },
   {
     icon: RefreshCw,
     title: "Auto-update",
     description:
-      "Checks GitHub Releases daily. Downloads, replaces, and restarts itself with zero manual intervention.",
+      "Checks GitHub Releases daily. Downloads, verifies checksum, replaces binary, and restarts cleanly via the service manager.",
   },
   {
     icon: Terminal,
     title: "One-line install",
     description:
-      "A single curl or PowerShell command installs the agent, injects your auth token, and registers it as a system service.",
+      "A single PowerShell command downloads, installs, configures, and starts the agent. No manual steps required.",
   },
   {
-    icon: BarChart3,
-    title: "Vital metrics",
+    icon: Activity,
+    title: "Health checks",
     description:
-      "CPU usage, RAM (total/used), disk I/O, and network (bytes in/out). Everything you need to understand server health at a glance.",
+      "Active TCP and HTTP health checks remove dead backends from the pool automatically. Restored backends rejoin without intervention.",
   },
 ];
 
@@ -70,11 +70,11 @@ export function Features() {
             Why CupraFlow
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-text)]">
-            Built for production, not for demos
+            Built for production networks
           </h2>
           <p className="mt-4 text-[var(--color-muted)] max-w-xl mx-auto">
-            Every decision â€” language, protocol, install flow â€” was made to minimize friction
-            and resource cost on the machines you care about.
+            Every decision — from Rust as the runtime to the Windows Service integration —
+            was made to minimize friction and maximize uptime.
           </p>
         </div>
 

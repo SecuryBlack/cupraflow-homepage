@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -6,61 +6,73 @@ import { Terminal, MonitorDown } from "lucide-react";
 import { CodeBlock } from "@/components/ui/CodeBlock";
 
 const tabs = [
-  { id: "linux", label: "Linux / macOS", icon: Terminal },
   { id: "windows", label: "Windows", icon: MonitorDown },
+  { id: "linux", label: "Linux / macOS", icon: Terminal },
 ] as const;
 
 type TabId = (typeof tabs)[number]["id"];
-
-const linuxSteps = [
-  {
-    step: "1",
-    title: "Install with one command",
-    code: `curl -fsSL https://install.CupraFlow.dev | sudo bash`,
-    language: "bash",
-  },
-  {
-    step: "2",
-    title: "The installer will prompt for your auth token",
-    code: `Enter your CupraFlow token: op_live_xxxxxxxxxxxx`,
-    language: "bash",
-  },
-  {
-    step: "3",
-    title: "Agent starts automatically as a systemd service",
-    code: `â— CupraFlow.service - CupraFlow telemetry agent
-     Loaded: loaded (/etc/systemd/system/CupraFlow.service)
-     Active: active (running)`,
-    language: "bash",
-  },
-];
 
 const windowsSteps = [
   {
     step: "1",
     title: "Install with PowerShell (run as Administrator)",
-    code: `irm https://install.CupraFlow.dev/windows | iex`,
+    code: `irm https://install.cupraflow.dev/windows | iex`,
     language: "powershell",
   },
   {
     step: "2",
-    title: "The installer will prompt for your auth token",
-    code: `Enter your CupraFlow token: op_live_xxxxxxxxxxxx`,
+    title: "The installer sets up the service automatically",
+    code: `Status   Name          DisplayName
+-------  ----          -----------
+Running  CupraFlow      CupraFlow Agent`,
     language: "powershell",
   },
   {
     step: "3",
-    title: "Agent registers as a Windows Service",
-    code: `Status   Name          DisplayName
--------  ----          -----------
-Running  CupraFlow      CupraFlow Telemetry Agent`,
-    language: "powershell",
+    title: "Edit config.toml to add your backends",
+    code: `# C:\\ProgramData\\CupraFlow\\config.toml
+[server]
+port = 8080
+bind_address = "0.0.0.0"
+
+[loadbalancer]
+enabled = true
+algorithm = "round_robin"
+backends = [
+  { name = "web1", address = "10.0.0.10:80", weight = 1 },
+  { name = "web2", address = "10.0.0.11:80", weight = 1 },
+]`,
+    language: "toml",
+  },
+];
+
+const linuxSteps = [
+  {
+    step: "1",
+    title: "Download the latest release",
+    code: `curl -fsSL https://github.com/sb-mcampoe/cupraflow/releases/latest/download/cupraflow-x86_64-pc-windows-msvc.zip -o cupraflow.zip`,
+    language: "bash",
+  },
+  {
+    step: "2",
+    title: "Extract and install",
+    code: `unzip cupraflow.zip
+sudo mv cupraflow /usr/local/bin/
+sudo chmod +x /usr/local/bin/cupraflow`,
+    language: "bash",
+  },
+  {
+    step: "3",
+    title: "Create config and start",
+    code: `mkdir -p /etc/cupraflow
+cupraflow check`,
+    language: "bash",
   },
 ];
 
 export function InstallSection() {
-  const [activeTab, setActiveTab] = useState<TabId>("linux");
-  const steps = activeTab === "linux" ? linuxSteps : windowsSteps;
+  const [activeTab, setActiveTab] = useState<TabId>("windows");
+  const steps = activeTab === "windows" ? windowsSteps : linuxSteps;
 
   return (
     <section className="py-16 md:py-24 px-4" id="install">
@@ -74,7 +86,7 @@ export function InstallSection() {
             Up and running in 60 seconds
           </h2>
           <p className="mt-4 text-[var(--color-muted)]">
-            One command installs the agent, configures your token, and starts the service.
+            One command installs the agent, registers the Windows Service, and starts it.
           </p>
         </div>
 
@@ -134,7 +146,7 @@ export function InstallSection() {
         <p className="text-center text-sm text-[var(--color-muted)] mt-8">
           Need advanced configuration?{" "}
           <a href="/install" className="text-[var(--color-primary)] hover:underline">
-            Full install guide â†’
+            Full install guide →
           </a>
         </p>
       </div>

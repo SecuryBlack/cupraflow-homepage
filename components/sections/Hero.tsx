@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { motion } from "framer-motion";
 import { ArrowRight, Github, Activity } from "lucide-react";
@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/Badge";
 import { CodeBlock } from "@/components/ui/CodeBlock";
 import { PulseAnimation } from "./PulseAnimation";
 
-const INSTALL_CMD = `curl -fsSL https://install.CupraFlow.dev | sudo bash`;
+const INSTALL_CMD = `irm https://install.cupraflow.dev/windows | iex`;
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -40,7 +40,7 @@ export function Hero() {
       <div
         className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] pointer-events-none"
         style={{
-          background: "radial-gradient(ellipse at center, rgba(51,225,191,0.08) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse at center, rgba(184,115,51,0.08) 0%, transparent 70%)",
         }}
       />
 
@@ -49,7 +49,7 @@ export function Hero() {
         <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={0} className="flex flex-col items-center gap-2">
           <Badge variant="primary" dot>
             <Activity size={11} />
-            Open Source Â· Apache 2.0
+            Open Source · Apache 2.0
           </Badge>
           <a
             href="https://securyblack.com"
@@ -69,10 +69,10 @@ export function Hero() {
           custom={0.1}
           className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight leading-[1.1]"
         >
-          Server{" "}
-          <span className="text-gradient-primary">vital signs.</span>
+          Network agent{" "}
+          <span className="text-gradient-primary">& load balancer.</span>
           <br />
-          Zero overhead.
+          Zero config.
         </motion.h1>
 
         {/* Subheadline */}
@@ -83,11 +83,10 @@ export function Hero() {
           custom={0.2}
           className="max-w-2xl text-lg sm:text-xl text-[var(--color-muted)] leading-relaxed"
         >
-          CupraFlow is an ultralight telemetry agent written in{" "}
-          <span className="text-[var(--color-text)]">Rust</span>. Monitor CPU, RAM,
-          disk and network with{" "}
-          <span className="text-[var(--color-text)]">near-zero resource usage</span>{" "}
-          and real-time gRPC streaming.
+          CupraFlow is a network management agent written in{" "}
+          <span className="text-[var(--color-text)]">Rust</span>. Runs as a native{" "}
+          <span className="text-[var(--color-text)]">Windows Service</span>{" "}
+          with one-line install. L4/L7 proxy, health checks, and high availability out of the box.
         </motion.p>
 
         {/* CTAs */}
@@ -121,11 +120,11 @@ export function Hero() {
           custom={0.4}
           className="w-full max-w-xl"
         >
-          <CodeBlock code={INSTALL_CMD} language="bash" filename="Linux / macOS" />
+          <CodeBlock code={INSTALL_CMD} language="powershell" filename="Windows (PowerShell)" />
           <p className="text-xs text-[var(--color-muted)] mt-2">
             Also available for{" "}
-            <a href="/install#windows" className="text-[var(--color-primary)] hover:underline">
-              Windows (PowerShell)
+            <a href="/install#linux" className="text-[var(--color-primary)] hover:underline">
+              Linux (systemd)
             </a>
           </p>
         </motion.div>
@@ -150,10 +149,10 @@ export function Hero() {
           className="flex flex-wrap items-center justify-center gap-6 text-sm text-[var(--color-muted)]"
         >
           {[
-            ["~2 MB", "binary size"],
-            ["<0.1%", "CPU usage"],
+            ["~3 MB", "binary size"],
+            ["L4/L7", "proxy"],
             ["Rust", "memory safe"],
-            ["gRPC", "OTLP protocol"],
+            ["Windows", "native service"],
           ].map(([value, label]) => (
             <div key={label} className="flex items-center gap-1.5">
               <span className="text-[var(--color-primary)] font-semibold">{value}</span>
