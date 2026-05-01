@@ -1,0 +1,55 @@
+---
+title: "Why we built OxiPulse"
+date: "2025-03-01"
+author: "SecuryBlack"
+summary: "Monitoring agents shouldn't cost more to run than the applications they monitor. Here's why we built OxiPulse."
+tags: ["announcement", "rust", "observability"]
+---
+
+Every time we set up monitoring on a server, we faced the same frustration: the agent consumed
+more resources than most of the services we were trying to monitor.
+
+Prometheus exporters need a Node.js or Python runtime. Commercial agents run with 200–400 MB of
+RAM and 1–5% persistent CPU. On a small VPS or a constrained edge node, that overhead is not
+acceptable.
+
+## The requirements we set
+
+We wanted an agent that:
+
+- Compiles to a single static binary with no runtime dependencies
+- Consumes under 0.1% CPU and under 10 MB of RAM
+- Speaks a standard protocol so we're not locked into any vendor
+- Handles network failures gracefully without losing data
+- Updates itself without manual intervention
+
+Rust was the obvious choice. No garbage collector, no runtime, direct OS API access, and a
+compiler that catches entire classes of bugs before they reach production.
+
+## Why OpenTelemetry
+
+We could have built a custom protocol, but that would mean custom integrations on every backend.
+OTLP (OpenTelemetry Protocol) over gRPC is becoming the standard for telemetry transport. Any
+modern observability stack — Grafana, Datadog, Honeycomb, your own collector — can receive it.
+
+Choosing OTLP means OxiPulse works with whatever you already have.
+
+## Open source, no lock-in
+
+The agent is Apache 2.0. You can point it at your own OTLP collector — you don't need to use
+SecuryBlack's infrastructure. We believe monitoring tooling should be transparent and auditable.
+
+We're releasing OxiPulse as a standalone project because it solves a real problem, and because
+we think the community can help make it better faster than we can alone.
+
+## What's next
+
+v0.1.0 covers the core: CPU, RAM, disk, and network metrics over gRPC. On the roadmap:
+
+- Per-process metrics
+- Custom metric labels
+- Docker and Kubernetes integrations
+- A public Prometheus-compatible endpoint as an alternative to OTLP
+
+If you have a use case that isn't covered, [open an issue](https://github.com/securyblack/oxi-pulse/issues).
+We read them all.
