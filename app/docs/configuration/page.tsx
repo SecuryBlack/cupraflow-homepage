@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 const envVars = [
-  { name: "CupraFlow_TOKEN",         required: true,  default: "â€”",                                  desc: "Agent authentication token" },
+  { name: "CupraFlow_TOKEN",         required: true,  default: "”",                                  desc: "Agent authentication token" },
   { name: "CupraFlow_ENDPOINT",      required: false, default: "https://ingest.cupraflow.dev",        desc: "OTLP gRPC endpoint" },
   { name: "CupraFlow_INTERVAL_SECS", required: false, default: "10",                                 desc: "Metric collection interval in seconds" },
   { name: "CupraFlow_LOG_LEVEL",     required: false, default: "info",                               desc: "Log verbosity: trace, debug, info, warn, error" },
@@ -81,7 +81,7 @@ buffer_max_mb  = 100`}
       />
 
       <Callout variant="warning">
-        Never commit <code>config.toml</code> to version control â€” it contains your auth token.
+        Never commit <code>config.toml</code> to version control ” it contains your auth token.
         The installer&apos;s default <code>.gitignore</code> excludes it, but double-check before
         pushing to a public repository.
       </Callout>

@@ -10,7 +10,7 @@ const highlights = [
     icon: FileText,
     title: "Apache 2.0",
     description:
-      "Permissive license. Use it in commercial projects, modify it, distribute it â€” no strings attached.",
+      "Permissive license. Use it in commercial projects, modify it, distribute it ” no strings attached.",
   },
   {
     icon: GitFork,
@@ -31,7 +31,7 @@ export function OpenSourceSection() {
     <section className="py-16 md:py-24 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          {/* Left â€” text */}
+          {/* Left ” text */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -73,7 +73,7 @@ export function OpenSourceSection() {
             </div>
           </motion.div>
 
-          {/* Right â€” cards */}
+          {/* Right ” cards */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}

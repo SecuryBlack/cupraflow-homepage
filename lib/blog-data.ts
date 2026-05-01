@@ -19,7 +19,7 @@ export const posts: PostData[] = [
     title: "Zero-downtime auto-updates in a Rust binary",
     date: "2025-10-10",
     author: "SecuryBlack",
-    summary: "How CupraFlow replaces itself in place and delegates restart to the OS service manager â€” no downtime, no manual intervention.",
+    summary: "How CupraFlow replaces itself in place and delegates restart to the OS service manager ” no downtime, no manual intervention.",
     tags: ["rust", "engineering"],
     content: `
 CupraFlow ships updates silently. No package manager, no SSH session, no restart window to schedule.
@@ -31,7 +31,7 @@ Once a new release is tagged on GitHub, every running agent picks it up within 2
 A monitoring agent has an awkward update problem. It must:
 
 1. Download the new binary without interrupting metric collection
-2. Replace itself atomically â€” a partially-written binary would be unexecutable
+2. Replace itself atomically ” a partially-written binary would be unexecutable
 3. Hand off cleanly so the service manager restarts it with the new version
 4. Never brick a remote server if a download fails
 
@@ -56,7 +56,7 @@ Either way, there is no moment where the binary on disk is partially written.
 
 ## Delegating the restart
 
-CupraFlow does not restart itself. After replacing the binary it calls \`std::process::exit(0)\` â€” a clean
+CupraFlow does not restart itself. After replacing the binary it calls \`std::process::exit(0)\` ” a clean
 exit with code 0. The OS service manager sees a stopped service and restarts it automatically:
 
 - **systemd**: \`Restart=on-failure\` (or \`always\`) in the unit file restarts the process
@@ -109,7 +109,7 @@ with no gaps in the time series. Here's how the offline buffer works.
 ## The ring buffer
 
 When the ingestor is unreachable, metric snapshots are stored in an in-memory ring buffer.
-The default capacity is **8,640 snapshots** â€” exactly 24 hours of data at the default 10-second
+The default capacity is **8,640 snapshots** ” exactly 24 hours of data at the default 10-second
 interval. When the buffer is full, the oldest snapshot is dropped to make room for the newest.
 The agent always has the most recent 24 hours, never more.
 
@@ -126,7 +126,7 @@ snapshots consume under 1 MB of RAM.
 
 Checking reachability on every collection tick would generate a lot of noise and waste
 resources during a prolonged outage. CupraFlow uses exponential backoff: after the first
-failure it checks again after 2 ticks, then 4, 8â€¦ up to a ceiling of approximately 30 seconds.
+failure it checks again after 2 ticks, then 4, 8… up to a ceiling of approximately 30 seconds.
 
 \`\`\`
 tick 1: unreachable â†’ mark offline, backoff = 1 tick
@@ -138,7 +138,7 @@ tick 6: check â†’ still unreachable â†’ backoff = 4 ticks
 \`\`\`
 
 When the ingestor comes back, the backoff resets immediately and the agent flushes the buffer
-in order â€” oldest snapshot first â€” before recording the current tick.
+in order ” oldest snapshot first ” before recording the current tick.
 
 ## The reachability check
 
@@ -177,7 +177,7 @@ offline for 2 hours â†’ reconnect
     tags: ["rust", "engineering"],
     content: `
 Go is the default choice for infrastructure tooling in 2025. Prometheus, Grafana Agent, Telegraf,
-Docker, Kubernetes â€” the list is long. When we started CupraFlow, we seriously considered Go.
+Docker, Kubernetes ” the list is long. When we started CupraFlow, we seriously considered Go.
 We chose Rust. Here's why.
 
 ## The core constraint: resource overhead
@@ -187,7 +187,7 @@ shared vCPU, a 200 MB RSS agent is not acceptable. The agent itself becomes a th
 
 Go's runtime carries a garbage collector. For most workloads this is invisible. For a long-running
 daemon that allocates metric structs every 10 seconds, GC pauses are rare but non-zero. More
-importantly, Go's minimum RSS on a real workload tends to be 20â€“50 MB just for the runtime, heap,
+importantly, Go's minimum RSS on a real workload tends to be 20“50 MB just for the runtime, heap,
 and goroutine stacks.
 
 Rust has no runtime and no garbage collector. CupraFlow's RSS in steady state is under 8 MB.
@@ -195,13 +195,13 @@ On a constrained edge node or a Raspberry Pi, that difference matters.
 
 ## Single static binary, for real
 
-Go produces statically-linked binaries by default â€” unless you use CGO, which most network and
+Go produces statically-linked binaries by default ” unless you use CGO, which most network and
 system libraries do. Cross-compiling a CGO binary for Linux ARM64 from macOS requires a full
 cross-compilation toolchain and is notoriously fragile.
 
 Rust's static linking story is simpler. CupraFlow targets \`x86_64-unknown-linux-musl\` and
 \`aarch64-unknown-linux-musl\`, which produce fully static binaries with zero shared library
-dependencies. The same binary runs on Alpine, Debian, Ubuntu, RHEL â€” any Linux distribution.
+dependencies. The same binary runs on Alpine, Debian, Ubuntu, RHEL ” any Linux distribution.
 
 ## The OpenTelemetry SDK
 
@@ -219,13 +219,13 @@ We are not anti-Go. If CupraFlow needed:
 - Fast iteration on protocol integrations
 - A big contributor community (Go's tooling ecosystem is excellent)
 
-â€¦Go would have been the right call. For a focused, single-purpose binary where memory footprint
+…Go would have been the right call. For a focused, single-purpose binary where memory footprint
 and startup time matter more than plugin breadth, Rust was the better fit.
 
 ## The tradeoff we accepted
 
 Rust has a steeper learning curve and a slower compile cycle. Our CI build takes longer than it
-would in Go. The borrow checker caught real bugs during development â€” which was the point â€” but
+would in Go. The borrow checker caught real bugs during development ” which was the point ” but
 it also slowed initial implementation.
 
 For a tool that runs unattended on thousands of servers, correctness and efficiency outweigh
@@ -241,14 +241,14 @@ developer convenience. That tradeoff made sense for us.
     tags: ["tutorial", "raspberry-pi", "linux"],
     content: `
 A Raspberry Pi running a home server, a media centre, or a self-hosted service deserves the same
-monitoring as a cloud VM â€” but the agent needs to fit alongside everything else on limited hardware.
+monitoring as a cloud VM ” but the agent needs to fit alongside everything else on limited hardware.
 CupraFlow compiles to a native ARM64 binary and uses under 8 MB of RAM in steady state.
 
 ## Prerequisites
 
 - Raspberry Pi 3, 4 or 5 (64-bit OS)
 - Raspberry Pi OS (64-bit), Ubuntu Server, or any 64-bit ARM Linux
-- An CupraFlow account at [app.securyblack.com](https://app.securyblack.com) â€” or your own OTLP ingestor
+- An CupraFlow account at [app.securyblack.com](https://app.securyblack.com) ” or your own OTLP ingestor
 
 <Callout type="info">
   CupraFlow also builds for \`armv7\` (32-bit ARM), but the 64-bit binary is recommended for
@@ -267,7 +267,7 @@ It installs to \`/usr/local/bin/CupraFlow\` and registers a systemd service.
 ## 2. Create an agent in SecuryBlack
 
 Log into [app.securyblack.com](https://app.securyblack.com), navigate to **Agents**, and click
-**New agent**. Give it a name (e.g. \`raspberrypi-home\`) and copy the token shown â€” it will not
+**New agent**. Give it a name (e.g. \`raspberrypi-home\`) and copy the token shown ” it will not
 be displayed again.
 
 ## 3. Configure the agent
@@ -298,7 +298,7 @@ sudo systemctl status CupraFlow
 
 ## 5. Verify in the dashboard
 
-Open the agent detail page in SecuryBlack. Within 30â€“60 seconds you should see CPU, RAM, disk
+Open the agent detail page in SecuryBlack. Within 30“60 seconds you should see CPU, RAM, disk
 and network charts populating with data. CPU usage on a Pi 4 at 30-second intervals is under 0.05%.
 
 ## Tips for constrained Pis
@@ -323,7 +323,7 @@ At a 30-second interval with a 2,880-snapshot buffer it uses under 200 KB. Safe 
     tags: ["tutorial", "hetzner", "linux"],
     content: `
 Hetzner is a favourite for developers who want solid hardware at European prices. A CX22 starts
-at â‚¬3.79/month with 2 vCPUs and 4 GB RAM â€” leaving little budget for a heavy monitoring agent.
+at â‚¬3.79/month with 2 vCPUs and 4 GB RAM ” leaving little budget for a heavy monitoring agent.
 CupraFlow's 8 MB footprint and sub-0.1% CPU overhead are a natural fit.
 
 ## Prerequisites
@@ -389,7 +389,7 @@ Infrastructure Map view to get a visual overview of your entire Hetzner fleet.
 ## Network metrics and Hetzner's traffic limits
 
 Hetzner includes a monthly traffic allowance. The \`net_bytes_in\` and \`net_bytes_out\` counters
-in CupraFlow are cumulative since agent startup â€” useful for spotting traffic spikes but not a
+in CupraFlow are cumulative since agent startup ” useful for spotting traffic spikes but not a
 replacement for Hetzner's own traffic graph in the console.
 `.trim(),
   },
@@ -404,11 +404,11 @@ replacement for Hetzner's own traffic graph in the console.
 Telegraf is an impressive piece of software. Written in Go and maintained by InfluxData, it
 supports over 300 input plugins and can ship data to dozens of output targets. CupraFlow covers
 exactly one input (system metrics) and exactly one output (OTLP/gRPC). The comparison is not
-competitive â€” they solve different problems.
+competitive ” they solve different problems.
 
 ## Resource usage
 
-Telegraf's Go binary with a minimal config typically uses 30â€“80 MB of RAM and 0.1â€“0.5% CPU.
+Telegraf's Go binary with a minimal config typically uses 30“80 MB of RAM and 0.1“0.5% CPU.
 That is acceptable on most servers but noticeable on constrained hardware.
 
 CupraFlow uses under 8 MB of RAM and under 0.05% CPU in steady state. The difference matters
@@ -419,10 +419,10 @@ on a $4 VPS, a Raspberry Pi, or an edge device where every megabyte counts.
 | | CupraFlow | Telegraf |
 |---|---|---|
 | OTLP/gRPC | âœ“ native | âœ“ via plugin |
-| Prometheus remote write | â€” | âœ“ |
-| InfluxDB line protocol | â€” | âœ“ native |
-| Kafka, MQTT, AMQP | â€” | âœ“ |
-| OpenTelemetry (input) | â€” | âœ“ |
+| Prometheus remote write | ” | âœ“ |
+| InfluxDB line protocol | ” | âœ“ native |
+| Kafka, MQTT, AMQP | ” | âœ“ |
+| OpenTelemetry (input) | ” | âœ“ |
 
 Telegraf's output breadth is unmatched. If you need to write to InfluxDB, Kafka, and an S3
 bucket simultaneously, Telegraf is the right tool.
@@ -477,7 +477,7 @@ you actually need."
 
 ## Resource overhead
 
-The Datadog Agent requires a minimum of 256 MB of RAM and uses 0.5â€“3% CPU on a typical server.
+The Datadog Agent requires a minimum of 256 MB of RAM and uses 0.5“3% CPU on a typical server.
 On a large fleet of powerful machines this is negligible. On a VPS, a Raspberry Pi, or an edge
 device it is significant.
 
@@ -487,8 +487,8 @@ environments.
 ## Cost
 
 Datadog pricing is based on host count and features. Infrastructure monitoring starts at around
-\$15â€“\$27 per host per month (depending on plan), billed annually. For a 50-server fleet that is
-\$750â€“\$1,350 per month before any APM, log management, or add-ons.
+\$15“\$27 per host per month (depending on plan), billed annually. For a 50-server fleet that is
+\$750“\$1,350 per month before any APM, log management, or add-ons.
 
 CupraFlow is Apache 2.0. SecuryBlack's hosted ingestor is included in the SecuryBlack subscription.
 There is no per-host fee.
@@ -498,14 +498,14 @@ There is no per-host fee.
 The Datadog Agent sends data exclusively to Datadog's endpoints. If you want to move away from
 Datadog, your metric history stays in Datadog's infrastructure.
 
-CupraFlow uses OTLP â€” an open standard. Your data goes to whatever backend you point it at.
+CupraFlow uses OTLP ” an open standard. Your data goes to whatever backend you point it at.
 You can run your own OpenTelemetry Collector, send to Grafana Cloud, or use SecuryBlack's ingestor.
 Switching backends requires changing one line in \`config.toml\`.
 
 ## Feature depth
 
 Datadog wins on breadth without question: APM traces, log correlation, network performance
-monitoring, CI visibility, real user monitoring. CupraFlow does one thing â€” system metrics â€” and
+monitoring, CI visibility, real user monitoring. CupraFlow does one thing ” system metrics ” and
 does it with minimal overhead.
 
 ## When Datadog makes sense
@@ -531,7 +531,7 @@ does it with minimal overhead.
     tags: ["tutorial", "windows"],
     content: `
 Most monitoring agents treat Windows as an afterthought. CupraFlow ships a first-class Windows
-Service integration â€” the agent installs via a one-line PowerShell command, registers as a service
+Service integration ” the agent installs via a one-line PowerShell command, registers as a service
 that starts automatically on boot, and writes structured logs to the Windows Event Viewer.
 
 ## Prerequisites
@@ -612,7 +612,7 @@ Remove-Item "C:\\ProgramData\\CupraFlow" -Recurse
 
 CupraFlow checks for updates 5 minutes after startup. When a new version is found it replaces
 the binary in \`C:\\Program Files\\CupraFlow\\\` and exits cleanly. The Windows Service Manager
-restarts the process automatically with the new binary â€” no manual intervention required.
+restarts the process automatically with the new binary ” no manual intervention required.
 `.trim(),
   },
   {
@@ -624,7 +624,7 @@ restarts the process automatically with the new binary â€” no manual interv
     tags: ["tutorial", "grafana", "observability"],
     content: `
 CupraFlow speaks OTLP. Grafana can query Prometheus. The bridge between them is the
-OpenTelemetry Collector â€” a vendor-neutral pipeline that receives OTLP data and exports it to
+OpenTelemetry Collector ” a vendor-neutral pipeline that receives OTLP data and exports it to
 any backend. This guide walks through a complete self-hosted setup.
 
 ## Architecture
@@ -763,7 +763,7 @@ unique identifier.
 ## Using Grafana Cloud instead
 
 If you prefer a managed backend, Grafana Cloud provides an OTLP endpoint you can point CupraFlow
-at directly â€” no collector or Prometheus required. Replace the endpoint in \`config.toml\` with
+at directly ” no collector or Prometheus required. Replace the endpoint in \`config.toml\` with
 your Grafana Cloud OTLP URL and set the token to your Grafana Cloud API key.
 `.trim(),
   },
@@ -776,7 +776,7 @@ your Grafana Cloud OTLP URL and set the token to your Grafana Cloud API key.
     tags: ["observability", "opentelemetry"],
     content: `
 If you've set up monitoring in the past few years you've probably seen "OTLP" in documentation.
-It stands for **OpenTelemetry Protocol** â€” a wire format for transmitting telemetry data (metrics,
+It stands for **OpenTelemetry Protocol** ” a wire format for transmitting telemetry data (metrics,
 traces, and logs) between agents, collectors, and backends.
 
 ## The problem OTLP solves
@@ -787,9 +787,9 @@ rewriting dashboards, and converting historical data.
 
 OpenTelemetry is a CNCF project that standardises:
 
-- **The data model** â€” how metrics, traces and logs are structured
-- **The wire protocol** â€” how that data is transmitted (OTLP)
-- **The SDK** â€” how instrumentation is added to application code
+- **The data model** ” how metrics, traces and logs are structured
+- **The wire protocol** ” how that data is transmitted (OTLP)
+- **The SDK** ” how instrumentation is added to application code
 
 If your agent speaks OTLP, it can send data to any backend that also speaks OTLP: Grafana,
 Datadog, Honeycomb, Lightstep, Jaeger, your own self-hosted collector. One agent, any backend.
@@ -798,10 +798,10 @@ Datadog, Honeycomb, Lightstep, Jaeger, your own self-hosted collector. One agent
 
 OTLP has two transport options:
 
-**OTLP/gRPC** â€” the default. Uses Protocol Buffers over HTTP/2 with TLS. Efficient binary
+**OTLP/gRPC** ” the default. Uses Protocol Buffers over HTTP/2 with TLS. Efficient binary
 encoding, multiplexing, and bidirectional streaming. CupraFlow uses this transport.
 
-**OTLP/HTTP** â€” uses JSON or Protobuf over HTTP/1.1 or HTTP/2. Easier to debug with tools
+**OTLP/HTTP** ” uses JSON or Protobuf over HTTP/1.1 or HTTP/2. Easier to debug with tools
 like \`curl\`, but less efficient for high-frequency metric export.
 
 A typical OTLP export looks like this:
@@ -818,7 +818,7 @@ ExportMetricsServiceRequest
                           â””â”€â”€ DataPoint { value: 12.4, timestamp: ... }
 \`\`\`
 
-The **Resource** section carries attributes that describe the source â€” in CupraFlow's case,
+The **Resource** section carries attributes that describe the source ” in CupraFlow's case,
 the agent version and identifier. The **Metric** section carries the actual measurements.
 
 ## Resource attributes in CupraFlow
@@ -865,7 +865,7 @@ your own OpenTelemetry Collector and use whatever storage and visualisation tool
     tags: ["comparison", "observability"],
     content: `
 Netdata and CupraFlow take opposite approaches to monitoring. Netdata is a batteries-included
-platform: it collects metrics, stores them locally, renders dashboards, and fires alerts â€” all
+platform: it collects metrics, stores them locally, renders dashboards, and fires alerts ” all
 from a single process. CupraFlow is deliberately narrow: it collects system metrics and ships
 them to an OTLP backend. Nothing more.
 
@@ -875,8 +875,8 @@ This is where the comparison is most stark.
 
 | | CupraFlow | Netdata |
 |---|---|---|
-| RAM | < 8 MB | 100â€“350 MB |
-| CPU (idle) | < 0.05% | 1â€“5% |
+| RAM | < 8 MB | 100“350 MB |
+| CPU (idle) | < 0.05% | 1“5% |
 | Disk writes | None (in-memory buffer) | Continuous (local DB) |
 | Binary size | ~10 MB | ~50 MB + dependencies |
 
@@ -904,7 +904,7 @@ unreachable, they are buffered in memory for up to 24 hours.
 Netdata ships with hundreds of pre-built dashboards and alert rules. You get a working
 monitoring setup with no additional infrastructure.
 
-CupraFlow has no built-in dashboards. You visualise data in your existing stack â€” Grafana,
+CupraFlow has no built-in dashboards. You visualise data in your existing stack ” Grafana,
 the SecuryBlack dashboard, or whatever receives your OTLP data.
 
 ## When to choose Netdata
@@ -930,13 +930,13 @@ the SecuryBlack dashboard, or whatever receives your OTLP data.
     tags: ["tutorial", "linux"],
     content: `
 CupraFlow installs on any 64-bit Linux distribution with a single command. The binary is statically
-linked â€” no runtime dependencies, no package manager required after installation.
+linked ” no runtime dependencies, no package manager required after installation.
 
 ## Prerequisites
 
 - A 64-bit Linux server (Debian, Ubuntu, RHEL, Alpine, or any systemd-based distro)
 - \`curl\` installed
-- An CupraFlow account at [app.securyblack.com](https://app.securyblack.com) â€” or your own OTLP ingestor
+- An CupraFlow account at [app.securyblack.com](https://app.securyblack.com) ” or your own OTLP ingestor
 
 ## 1. Run the installer
 
@@ -977,7 +977,7 @@ token    = "YOUR_TOKEN_HERE"
 
 # Optional
 interval_secs   = 10    # collection interval in seconds (default: 10)
-buffer_max_size = 8640  # offline buffer â€” 24 h at 10 s (default)
+buffer_max_size = 8640  # offline buffer ” 24 h at 10 s (default)
 \`\`\`
 
 ## 4. Restart the agent
@@ -1006,7 +1006,7 @@ INFO CupraFlow: metrics collected and recorded cpu=3.2% ram_used_mb=1024
 
 ## 6. Verify in the dashboard
 
-Open the agent detail page in SecuryBlack. Within 10â€“30 seconds you should see CPU, RAM, disk
+Open the agent detail page in SecuryBlack. Within 10“30 seconds you should see CPU, RAM, disk
 and network charts populating with live data.
 
 ## Configuration via environment variables
@@ -1038,7 +1038,7 @@ sudo rm -rf /etc/CupraFlow
     tags: ["comparison", "prometheus", "observability"],
     content: `
 Prometheus Node Exporter is installed on millions of Linux servers. If you run Prometheus, it is
-the obvious choice for host metrics. CupraFlow takes a fundamentally different approach â€” push
+the obvious choice for host metrics. CupraFlow takes a fundamentally different approach ” push
 instead of pull, OTLP instead of Prometheus exposition format. Here's a direct comparison.
 
 ## Architecture: pull vs push
@@ -1056,7 +1056,7 @@ CupraFlow  â†’  OTLP collector  â†’  storage
 \`\`\`
 
 Pull is simpler to reason about for Prometheus users. Push works better in environments where
-agents are behind NAT, firewalls, or change IP frequently â€” Prometheus can't scrape what it can't reach.
+agents are behind NAT, firewalls, or change IP frequently ” Prometheus can't scrape what it can't reach.
 
 ## Protocol and backend flexibility
 
@@ -1072,19 +1072,19 @@ OpenTelemetry Collector, and SecuryBlack's ingestor. No intermediate Prometheus 
 |---|---|---|
 | CPU usage | âœ“ (detailed per-mode) | âœ“ (overall %) |
 | Memory | âœ“ (detailed: buffers, cache) | âœ“ (used / total) |
-| Disk I/O | âœ“ | â€” |
+| Disk I/O | âœ“ | ” |
 | Disk space | âœ“ | âœ“ |
 | Network | âœ“ (per interface) | âœ“ (aggregate in/out) |
-| Filesystem stats | âœ“ | â€” |
-| Hardware (temp, fans) | âœ“ (via collectors) | â€” |
-| Systemd units | âœ“ (via collector) | â€” |
+| Filesystem stats | âœ“ | ” |
+| Hardware (temp, fans) | âœ“ (via collectors) | ” |
+| Systemd units | âœ“ (via collector) | ” |
 
 Node Exporter wins on depth. CupraFlow covers the four metrics that matter for most server
 health checks without the complexity.
 
 ## Offline resilience
 
-Node Exporter has no buffer â€” if Prometheus can't scrape during an outage, data is lost.
+Node Exporter has no buffer ” if Prometheus can't scrape during an outage, data is lost.
 CupraFlow stores up to 24 hours of metric snapshots in memory and flushes them on reconnect.
 
 ## Auto-update
@@ -1118,8 +1118,8 @@ checks GitHub Releases 5 minutes after startup and replaces itself automatically
 Every time we set up monitoring on a server, we faced the same frustration: the agent consumed
 more resources than most of the services we were trying to monitor.
 
-Prometheus exporters need a Node.js or Python runtime. Commercial agents run with 200â€“400 MB of
-RAM and 1â€“5% persistent CPU. On a small VPS or a constrained edge node, that overhead is not
+Prometheus exporters need a Node.js or Python runtime. Commercial agents run with 200“400 MB of
+RAM and 1“5% persistent CPU. On a small VPS or a constrained edge node, that overhead is not
 acceptable.
 
 ## The requirements we set
@@ -1139,13 +1139,13 @@ compiler that catches entire classes of bugs before they reach production.
 
 We could have built a custom protocol, but that would mean custom integrations on every backend.
 OTLP (OpenTelemetry Protocol) over gRPC is becoming the standard for telemetry transport. Any
-modern observability stack â€” Grafana, Datadog, Honeycomb, your own collector â€” can receive it.
+modern observability stack ” Grafana, Datadog, Honeycomb, your own collector ” can receive it.
 
 Choosing OTLP means CupraFlow works with whatever you already have.
 
 ## Open source, no lock-in
 
-The agent is Apache 2.0. You can point it at your own OTLP collector â€” you don't need to use
+The agent is Apache 2.0. You can point it at your own OTLP collector ” you don't need to use
 SecuryBlack's infrastructure. We believe monitoring tooling should be transparent and auditable.
 
 We're releasing CupraFlow as a standalone project because it solves a real problem, and because

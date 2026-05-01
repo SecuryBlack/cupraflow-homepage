@@ -49,7 +49,7 @@ export function Hero() {
         <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={0} className="flex flex-col items-center gap-2">
           <Badge variant="primary" dot>
             <Activity size={11} />
-            Open Source Â· Apache 2.0
+            Open Source · Apache 2.0
           </Badge>
           <a
             href="https://securyblack.com"

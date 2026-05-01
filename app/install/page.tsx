@@ -17,8 +17,8 @@ export const metadata: Metadata = {
 const platforms = [
   { os: "Windows", arch: "x86_64", status: "stable", binary: "cupraflow-x86_64-pc-windows-msvc.zip" },
   { os: "Windows", arch: "ARM64", status: "beta", binary: "cupraflow-aarch64-pc-windows-msvc.zip" },
-  { os: "Linux", arch: "x86_64 (amd64)", status: "planned", binary: "â€”" },
-  { os: "Linux", arch: "ARM64 (aarch64)", status: "planned", binary: "â€”" },
+  { os: "Linux", arch: "x86_64 (amd64)", status: "planned", binary: "”" },
+  { os: "Linux", arch: "ARM64 (aarch64)", status: "planned", binary: "”" },
 ];
 
 const statusBadge = (s: string) => {

@@ -41,7 +41,7 @@ const links = [
   {
     icon: FileText,
     title: "License",
-    description: "Apache 2.0 â€” free to use, modify, and distribute commercially.",
+    description: "Apache 2.0 ” free to use, modify, and distribute commercially.",
     href: "https://github.com/sb-mcampoe/cupraflow/blob/main/LICENSE",
     cta: "Read license",
   },
@@ -57,7 +57,7 @@ export default function CommunityPage() {
             Community
           </h1>
           <p className="text-lg text-[var(--color-muted)] max-w-xl mx-auto">
-            CupraFlow is built in the open. Everything happens on GitHub â€” issues, pull requests,
+            CupraFlow is built in the open. Everything happens on GitHub ” issues, pull requests,
             discussions, releases.
           </p>
           <div className="flex flex-wrap justify-center gap-3 mt-8">

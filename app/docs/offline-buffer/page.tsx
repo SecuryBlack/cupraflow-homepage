@@ -68,8 +68,8 @@ INFO CupraFlow: buffer drained, resuming normal operation`}
 
       <h2>Disk space considerations</h2>
       <p>
-        At the default 10-second interval, one batch is approximately <strong>1â€“3 KB</strong>.
-        The default 100 MB buffer can hold roughly <strong>8â€“24 hours</strong> of metrics before
+        At the default 10-second interval, one batch is approximately <strong>1“3 KB</strong>.
+        The default 100 MB buffer can hold roughly <strong>8“24 hours</strong> of metrics before
         the oldest data starts being dropped.
       </p>
 

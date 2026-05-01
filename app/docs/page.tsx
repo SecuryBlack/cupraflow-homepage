@@ -15,8 +15,8 @@ export default function DocsIntroduction() {
       <h1>Introduction</h1>
       <p>
         CupraFlow is an <strong>ultralight, open-source telemetry agent</strong> written in Rust.
-        It runs as a background service on your servers and streams vital metrics â€” CPU, RAM, disk,
-        and network â€” to any OpenTelemetry-compatible collector via gRPC.
+        It runs as a background service on your servers and streams vital metrics ” CPU, RAM, disk,
+        and network ” to any OpenTelemetry-compatible collector via gRPC.
       </p>
 
       <Callout variant="success">
@@ -45,17 +45,17 @@ export default function DocsIntroduction() {
       <p>CupraFlow is composed of a single binary that handles:</p>
       <ul>
         <li>
-          <strong>Metric collection</strong> â€” CPU%, RAM (total/used), disk (total/used on{" "}
+          <strong>Metric collection</strong> ” CPU%, RAM (total/used), disk (total/used on{" "}
           <code>/</code>), network (bytes in/out)
         </li>
         <li>
-          <strong>OTLP export</strong> â€” batched gRPC transport every 10 seconds
+          <strong>OTLP export</strong> ” batched gRPC transport every 10 seconds
         </li>
         <li>
-          <strong>Offline buffer</strong> â€” local disk buffer when the collector is unreachable
+          <strong>Offline buffer</strong> ” local disk buffer when the collector is unreachable
         </li>
         <li>
-          <strong>Auto-update</strong> â€” daily check against GitHub Releases
+          <strong>Auto-update</strong> ” daily check against GitHub Releases
         </li>
       </ul>
 
@@ -64,7 +64,7 @@ export default function DocsIntroduction() {
         The agent is licensed under{" "}
         <a href="https://github.com/sb-mcampoe/cupraflow/blob/main/LICENSE">Apache 2.0</a>. You
         can use it in commercial projects, modify it, and distribute it without restriction. All
-        dependencies are Apache-2.0 or MIT compatible â€” no GPL, no LGPL.
+        dependencies are Apache-2.0 or MIT compatible ” no GPL, no LGPL.
       </p>
 
       <h2>Next steps</h2>

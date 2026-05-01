@@ -18,7 +18,7 @@ export default function QuickStart() {
         endpoint to receive metrics.
       </p>
 
-      <h2>Step 1 â€” Get your token</h2>
+      <h2>Step 1 ” Get your token</h2>
       <p>
         Log in to the CupraFlow dashboard and generate an agent token from the{" "}
         <strong>Settings â†’ Tokens</strong> page. It will look like{" "}
@@ -29,14 +29,14 @@ export default function QuickStart() {
         <code>CupraFlow_ENDPOINT</code> directly to your collector&apos;s gRPC address.
       </Callout>
 
-      <h2>Step 2 â€” Install the agent</h2>
+      <h2>Step 2 ” Install the agent</h2>
       <h3>Linux / macOS</h3>
       <CodeBlock
         code={`curl -fsSL https://install.cupraflow.dev | sudo bash`}
         language="bash"
         filename="Terminal"
       />
-      <h3>Windows (PowerShell â€” run as Administrator)</h3>
+      <h3>Windows (PowerShell ” run as Administrator)</h3>
       <CodeBlock
         code={`irm https://install.cupraflow.dev/windows | iex`}
         language="powershell"
@@ -47,7 +47,7 @@ export default function QuickStart() {
         binary, and register the agent as a system service with automatic restart.
       </p>
 
-      <h2>Step 3 â€” Verify the agent is running</h2>
+      <h2>Step 3 ” Verify the agent is running</h2>
       <h3>Linux</h3>
       <CodeBlock
         code={`systemctl status CupraFlow`}
@@ -66,9 +66,9 @@ export default function QuickStart() {
         language="powershell"
       />
 
-      <h2>Step 4 â€” Check data is flowing</h2>
+      <h2>Step 4 ” Check data is flowing</h2>
       <p>
-        Within 10â€“20 seconds of starting the agent, metrics should appear in your dashboard or
+        Within 10“20 seconds of starting the agent, metrics should appear in your dashboard or
         OTLP backend. You can also tail the logs to confirm:
       </p>
       <CodeBlock
@@ -96,14 +96,14 @@ INFO CupraFlow: metrics sent successfully (cpu=12.4%, ram=3.1GB/8GB)`}
       <h2>Next steps</h2>
       <ul>
         <li>
-          <a href="/docs/configuration">Configuration reference</a> â€” customize intervals,
+          <a href="/docs/configuration">Configuration reference</a> ” customize intervals,
           log level, buffer path
         </li>
         <li>
-          <a href="/docs/metrics">Metrics</a> â€” full list of what the agent collects
+          <a href="/docs/metrics">Metrics</a> ” full list of what the agent collects
         </li>
         <li>
-          <a href="/docs/offline-buffer">Offline buffer</a> â€” how resilience works
+          <a href="/docs/offline-buffer">Offline buffer</a> ” how resilience works
         </li>
       </ul>
     </Prose>
