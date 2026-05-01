@@ -42,13 +42,13 @@ export function PulseAnimation({ className = "" }: { className?: string }) {
 
         {/* Backend nodes */}
         <circle cx="120" cy="90" r="10" fill="var(--color-bg)" stroke="var(--color-primary)" strokeWidth="1.5" strokeOpacity="0.6" />
-        <text x="120" y="113" textAnchor="middle" fill="var(--color-muted)" fontSize="8" fontFamily="var(--font-geist-sans), system-ui, sans-serif">web1</text>
+        <text x="120" y="113" textAnchor="middle" fill="var(--color-muted)" fontSize="8" fontFamily="var(--font-geist-sans), system-ui, sans-serif">NLB1</text>
 
         <circle cx="200" cy="95" r="10" fill="var(--color-bg)" stroke="var(--color-primary)" strokeWidth="1.5" strokeOpacity="0.6" />
-        <text x="200" y="118" textAnchor="middle" fill="var(--color-muted)" fontSize="8" fontFamily="var(--font-geist-sans), system-ui, sans-serif">web2</text>
+        <text x="200" y="118" textAnchor="middle" fill="var(--color-muted)" fontSize="8" fontFamily="var(--font-geist-sans), system-ui, sans-serif">NLB2</text>
 
         <circle cx="280" cy="90" r="10" fill="var(--color-bg)" stroke="var(--color-primary)" strokeWidth="1.5" strokeOpacity="0.6" />
-        <text x="280" y="113" textAnchor="middle" fill="var(--color-muted)" fontSize="8" fontFamily="var(--font-geist-sans), system-ui, sans-serif">web3</text>
+        <text x="280" y="113" textAnchor="middle" fill="var(--color-muted)" fontSize="8" fontFamily="var(--font-geist-sans), system-ui, sans-serif">NLB3</text>
       </svg>
     </div>
   );
