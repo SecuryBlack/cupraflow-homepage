@@ -68,7 +68,7 @@ export default function CommunityPage() {
               external
             >
               <Github size={16} />
-              securyblack/oxi-pulse
+              sb-mcampoe/cupraflow
             </Button>
           </div>
         </div>

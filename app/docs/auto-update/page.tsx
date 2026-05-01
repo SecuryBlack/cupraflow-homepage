@@ -22,7 +22,7 @@ export default function AutoUpdatePage() {
       <h2>Update flow</h2>
       <ol>
         <li>
-          Agent checks <code>https://api.github.com/repos/securyblack/oxi-pulse/releases/latest</code>{" "}
+          Agent checks <code>https://api.github.com/repos/sb-mcampoe/cupraflow/releases/latest</code>{" "}
           once per day.
         </li>
         <li>
